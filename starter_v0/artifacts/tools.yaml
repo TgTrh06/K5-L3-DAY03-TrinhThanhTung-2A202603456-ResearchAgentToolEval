@@ -124,6 +124,7 @@ tools:
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
 
+<<<<<<< HEAD
   - name: hn_top
     description: >-
       Lấy các bài đang hot trên Hacker News (cộng đồng lập trình viên/tech).
@@ -136,3 +137,5 @@ tools:
         query: {type: string, default: "", description: "Từ khóa lọc tiêu đề, VD 'AI'. Để trống nếu không lọc."}
         limit: {type: integer, default: 5, description: "Số bài trả về, VD '10 bài' -> 10."}
       required: []
+=======
+>>>>>>> 4abe0fc66a385391471c8959cd4629e10f3d033b

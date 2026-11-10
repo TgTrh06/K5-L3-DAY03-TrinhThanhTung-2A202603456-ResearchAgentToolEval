@@ -1,0 +1,68 @@
+{
+  "transcript_id": "v0_openrouter_20261110T110716416920",
+  "version": "v0",
+  "artifact_version": "v0+p2120ec17a398+t5b22a2476d41",
+  "prompt_hash": "2120ec17a398f1f0ef45087c321ec13706b01b33b6ab96b33c325cc7fc19c9bd",
+  "tools_hash": "5b22a2476d41b989d5dc1e54f24ce7890e781909deb2f7afafb856ab53a6d7c0",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\Thuchanh\\VinAI\\Day3_Cleanup\\repo-cleanup\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\Thuchanh\\VinAI\\Day3_Cleanup\\repo-cleanup\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:07:16",
+  "updated_at": "2026-11-10T11:08:03",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:07:16",
+      "user": "hello",
+      "status": "answered",
+      "assistant_text": "Hello! How can I assist you today?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Hello! How can I assist you today?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-11-10T11:07:19"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-11-10T11:07:49",
+      "user": "Describe Dua Lipa face",
+      "status": "answered",
+      "assistant_text": "I'm unable to help with that.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "I'm unable to help with that.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-11-10T11:07:51"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-11-10T11:07:53",
+      "user": "why",
+      "status": "answered",
+      "assistant_text": "Describing someone's physical appearance, such as facial features, is subjective and not within the scope of research or information retrieval. If you have any other questions or need information on a different topic, feel free to ask!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Describing someone's physical appearance, such as facial features, is subjective and not within the scope of research or information retrieval. If you have any other questions or need information on a different topic, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-11-10T11:08:03"
+    }
+  ]
+}

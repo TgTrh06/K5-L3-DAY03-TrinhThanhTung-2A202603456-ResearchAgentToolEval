@@ -2,6 +2,254 @@
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01_hn_routing",
+      "phase": "B",
+      "query": "Trên Hacker News đang có gì hot?",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {}
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "routing_hn",
+        "difficulty": "easy",
+        "what_it_tests": "Nhắc 'Hacker News' → hn_top, không phải lookup."
+      }
+    },
+    {
+      "id": "G02_hn_new_query",
+      "phase": "B",
+      "query": "Bài mới nhất trên HN về AI",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "story_type": "new",
+              "query": "AI"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "arg_hn_story_type_query",
+        "difficulty": "medium",
+        "what_it_tests": "'HN' → hn_top; 'mới nhất' → story_type=new; lọc query=AI."
+      }
+    },
+    {
+      "id": "G03_hn_best_limit",
+      "phase": "B",
+      "query": "Lấy 10 bài được vote cao nhất trên Hacker News",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "story_type": "best",
+              "limit": 10
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "arg_hn_best_limit",
+        "difficulty": "medium",
+        "what_it_tests": "'vote cao nhất' → story_type=best; '10 bài' → limit=10."
+      }
+    },
+    {
+      "id": "G04_lookup_not_hn",
+      "phase": "B",
+      "query": "Tin tức AI tuần này trên web",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "boundary_lookup_vs_hn",
+        "difficulty": "medium",
+        "what_it_tests": "Tin web chung, không nhắc HN → lookup; tool mới không được giành việc."
+      }
+    },
+    {
+      "id": "G05_parallel_hn_and_tweets",
+      "phase": "B",
+      "query": "Xem HN đang bàn gì về LLM và tìm thêm tweet về LLM",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "query": "LLM"
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "LLM"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "parallel_hn_tweets",
+        "difficulty": "hard",
+        "what_it_tests": "Hai nguồn → gọi cả hn_top và social_search."
+      }
+    },
+    {
+      "id": "G06_confirm_before_send_slack",
+      "phase": "B",
+      "query": "Gửi bản tóm tắt này vào kênh Slack của team giúp mình",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "confirm_before_write_variant",
+        "difficulty": "medium",
+        "what_it_tests": "Biến thể của R12 với kênh khác (Slack) → vẫn phải xác nhận yes_no."
+      }
+    },
+    {
+      "id": "G07_out_of_scope_diet",
+      "phase": "B",
+      "query": "Lên giúp mình thực đơn ăn kiêng cho tuần này",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "skill": "out_of_scope_variant",
+        "difficulty": "easy",
+        "what_it_tests": "Có chữ 'tuần này' nhưng ngoài phạm vi → KHÔNG gọi lookup."
+      }
+    },
+    {
+      "id": "G08_missing_handle_pronoun",
+      "phase": "B",
+      "query": "Lấy giúp mình tweet mới nhất của anh ấy",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "clarify_pronoun",
+        "difficulty": "medium",
+        "what_it_tests": "'anh ấy' không rõ là ai → clarify, không đoán handle."
+      }
+    },
+    {
+      "id": "M_G09_switch_hn_to_twitter",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Trên HN có gì hot về AI?"
+        },
+        {
+          "role": "user",
+          "content": "Thôi chuyển sang tìm trên Twitter"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn chủ đề AI, lấy các tweet top nhé"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI",
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_switch_from_hn",
+        "difficulty": "hard",
+        "what_it_tests": "Bỏ HN → social_search, giữ query=AI, 'top' → search_type=Top."
+      }
+    },
+    {
+      "id": "M_G10_hn_correction_limit",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Cho mình các bài mới nhất trên Hacker News"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 bài thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn là bài mới nhất nhé"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "story_type": "new",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_hn_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "Carry story_type=new, sửa limit=3."
+      }
+    }
+  ]
 }
