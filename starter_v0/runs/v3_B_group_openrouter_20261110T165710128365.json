@@ -1,0 +1,463 @@
+{
+  "run_id": "v3_B_group_openrouter_20261110T165710128365",
+  "version": "v3",
+  "artifact_version": "v3+p4199db407a01+tc702c00904ea",
+  "prompt_hash": "4199db407a01c643954632e065db741f0aa0641da7172c303c2ce59266665cc2",
+  "tools_hash": "c702c00904eab3e961468c71050e80e74f98b40607209d09192423fbe8a75876",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\docs\\doc.academic\\vinuni\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\docs\\doc.academic\\vinuni\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
+  "generated_at": "2026-11-10T16:57:10",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 0,
+    "provider_error_cases": 10,
+    "passed_cases": 0,
+    "case_accuracy": 0.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G01_hn_routing",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_new_tool_hn",
+        "difficulty": "easy",
+        "what_it_tests": "Nhắc 'Hacker News' → route tới tool mới hn_top, không phải lookup/social_search."
+      },
+      "input": "Trên Hacker News đang có gì hot?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G02_hn_args_best_limit_query",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_hn",
+        "difficulty": "medium",
+        "what_it_tests": "'vote cao nhất' → story_type=best; '10 bài' → limit=10; 'về AI' → query=AI."
+      },
+      "input": "Lấy 10 bài được vote cao nhất trên HN về AI",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "story_type": "best",
+              "limit": 10,
+              "query": "AI"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G03_lookup_not_hn",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "boundary_lookup_vs_hn",
+        "difficulty": "medium",
+        "what_it_tests": "Tin web chung, không nhắc HN → vẫn lookup; tool mới không được giành việc của lookup."
+      },
+      "input": "Tin tức AI tuần này trên web",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G04_confirm_before_send_slack",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "confirm_before_write_variant",
+        "difficulty": "medium",
+        "what_it_tests": "Biến thể R12 với câu chữ khác → vẫn phải clarify yes_no, không gọi send."
+      },
+      "input": "Gửi bản tóm tắt này vào kênh của team giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G05_missing_handle_pronoun",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "clarify_pronoun",
+        "difficulty": "medium",
+        "what_it_tests": "'anh ấy' không rõ là ai → clarify text, không đoán handle."
+      },
+      "input": "Lấy giúp mình tweet mới nhất của anh ấy",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M_G06_switch_hn_to_twitter",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_switch_from_hn",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: bỏ HN → social_search, giữ query=AI, 'top' → search_type=Top."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Trên HN có gì hot về AI?"
+        },
+        {
+          "role": "user",
+          "content": "Thôi chuyển sang tìm trên Twitter"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn chủ đề AI, lấy các tweet top nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI",
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M_G07_hn_correction_limit",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_hn_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: carry story_type=new, sửa limit=3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Cho mình các bài mới nhất trên Hacker News"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 bài thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn là bài mới nhất nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "story_type": "new",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M_G08_clarify_then_hn",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_fill_new_tool",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: lượt 1 thiếu nguồn, lượt 2 bổ sung HN, lượt 3 thêm query/limit → hn_top(query=LLM, limit=3)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt mấy bài đang hot giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Trên Hacker News ấy"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 bài về LLM thôi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "hn_top",
+            "args": {
+              "query": "LLM",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M_G09_confirm_then_send",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_confirm_then_write",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: sau khi user xác nhận rõ ràng → send với confirmed=true (nhánh dương của guardrail)."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Đăng lên Telegram nội dung: 'Bản tin AI: OpenAI vừa công bố model mới.'"
+        },
+        {
+          "role": "user",
+          "content": "Bạn có chắc muốn đăng không? — Có, mình xác nhận"
+        },
+        {
+          "role": "user",
+          "content": "Đăng đúng nội dung đó luôn"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M_G10_out_of_scope_midway",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_out_of_scope",
+        "difficulty": "medium",
+        "what_it_tests": "3 turns: latest request là coding ngoài phạm vi → KHÔNG gọi tool, dù lượt đầu là research."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tin AI hôm nay có gì?"
+        },
+        {
+          "role": "user",
+          "content": "À tiện viết giúp mình hàm Python sắp xếp list"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ cần code thôi"
+        }
+      ],
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "APIStatusError: Error code: 402 - This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 16185. To increase, visit https://openrouter.ai/workspaces/default/keys/a77841b58bd3425abc3cf99d16255b5ca3a0c032d5f6f84f167bc8976a1321c3 and adjust the key's daily limit"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    }
+  ]
+}
