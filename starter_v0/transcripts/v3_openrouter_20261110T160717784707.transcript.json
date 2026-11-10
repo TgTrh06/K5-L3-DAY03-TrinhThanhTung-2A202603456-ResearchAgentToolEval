@@ -1,0 +1,308 @@
+{
+  "transcript_id": "v3_openrouter_20261110T160717784707",
+  "version": "v3",
+  "artifact_version": "v3+p4199db407a01+t706688b6b063",
+  "prompt_hash": "4199db407a01c643954632e065db741f0aa0641da7172c303c2ce59266665cc2",
+  "tools_hash": "706688b6b063662229c2106d244b638d02d3b4bcc2867f600bce44378050441d",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\VinUni\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\VinUni\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T16:07:17",
+  "updated_at": "2026-11-10T16:07:48",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T16:07:26",
+      "user": "Tin AI hôm nay có gì nổi bật?",
+      "status": "answered",
+      "assistant_text": "Here are some notable AI news highlights from today:\n\n1. **AI and Your Job: Threat or Opportunity?**  \n   As AI becomes more integrated into daily life, questions arise about its impact on jobs. Economists suggest that while AI may threaten entry-level positions, it could also create opportunities in sectors like construction and manufacturing. [Read more](https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity) (Source: Fox10TV)\n\n2. **Asia Not Riding but Building the AI Boom**  \n   Asian countries are focusing on their strengths in technology manufacturing to compete in the AI ecosystem. Governments are coordinating efforts to support domestic industries and enhance their global market participation. [Read more](https://www.gisreportsonline.com/r/asia-building-ai-boom) (Source: GIS Reports)\n\n3. **China's Trade Surplus Soars Past $1 Trillion as AI Boom Powers Exports**  \n   China's trade surplus has surged, largely due to a global push for AI infrastructure, which has bolstered high-tech exports. Analysts predict continued demand for Chinese tech products driven by the AI investment boom. [Read more](https://www.reuters.com/world/asia-pacific/chinas-trade-surplus-soars-past-1-trillion-october-exports-jump-352-yy-2026-11-10) (Source: Reuters)\n\n4. **UA Regents Delay Statement of Intent on AI Amid Feedback**  \n   The University of Alaska's Board of Regents has postponed a statement regarding the use of AI in its system to incorporate feedback from faculty and students. [Read more](https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback) (Source: Alaska's News Source)\n\n5. **Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry**  \n   Critics argue that a new bill in Congress could disproportionately benefit the AI data center industry, raising concerns about the implications for public input on AI's role in society. [Read more](https://time.com/article/2026/11/10/permitting-bill-data-centers) (Source: Time)\n\n### Top Tweets About AI:\n\n1. **Claude AI Full Course**  \n   A tweet promoting a full course on Claude AI, encouraging viewers to spend time learning instead of watching Netflix. [View Tweet](https://x.com/ai_with_jyoti/status/2119270857461858487) (Source: @ai_with_jyoti)\n\n2. **Elon Musk on AI Transition**  \n   Elon Musk discusses how young people can avoid being left behind in the AI transition, emphasizing the importance of broad education and prompt engineering. [View Tweet](https://x.com/0xHashiraa/status/2119831681410425152) (Source: @0xHashiraa)\n\n3. **Open Source AI Hacking Tool**  \n   A tweet about an open-source AI hacking tool called SAPPER that can autonomously conduct penetration testing operations. [View Tweet](https://x.com/MAXdeg0/status/2117947185492807817) (Source: @MAXdeg0)\n\n4. **Eric Schmidt on Building AI Companies**  \n   Former Google CEO Eric Schmidt shares insights on founding AI companies and the potential for wealth creation in the coming years. [View Tweet](https://x.com/HoodieFade_/status/2119824593753956844) (Source: @HoodieFade_)\n\n5. **AI Watching Unsecured Cameras**  \n   An AI project that monitors unsecured cameras worldwide to find individuals dressed like Wally, showcasing the intersection of art and technology. [View Tweet](https://x.com/IntCyberDigest/status/2119966268979925444) (Source: @IntCyberDigest)\n\nThese articles and tweets reflect the current discussions and developments in the AI landscape.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day"
+              }
+            },
+            {
+              "name": "social_search",
+              "args": {
+                "query": "AI",
+                "search_type": "Top"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "AI and your job: Threat or opportunity?",
+                    "url": "https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity",
+                    "source": "fox10tv.com",
+                    "summary": "MOBILE, Ala. (WALA) - Artificial intelligence is becoming a bigger part of everyday life, raising questions about what the technology could mean for workers and their jobs.\n\nSome economists believe AI poses a particular threat to entry-level and repetitive work, including call center, data entry and junior copywriting jobs, according to The Wall Street Journal. Those tasks may be easier to automate. [...] But AI could also create opportunities. A Bloomberg article points to potential job growth in construction and manufacturing as companies build data centers and produce the chips that power the technology. Some higher-skilled office workers could also benefit if AI helps them become more productive. [...] The long-term impact on jobs remains unclear, but workers can take steps to prepare. Exploring AI chatbots, writing assistants and other tools may help people find ways to work more efficiently and develop skills that complement the technology.",
+                    "score": 0.42348245
+                  },
+                  {
+                    "title": "Asia not riding but building the AI boom – GIS Reports",
+                    "url": "https://www.gisreportsonline.com/r/asia-building-ai-boom",
+                    "source": "gisreportsonline.com",
+                    "summary": "The AI ecosystem can be generally separated between three elements: models, compute power and supply chains – with the U.S. and China competing and leading for the first two. Asian countries are looking at how they can stand out amid this intense East-West competition, while capitalizing on their strengths in technology manufacturing supply chains. This has led smaller economies to identify their competitive advantages while investing in novel applications for AI in various industries such as [...] Due to demographic realities, manufacturing and exports are essential to Asian economies. AI is expected to support transitions as each country manages declines in their populations and workforce while maintaining economic growth and prosperity.\n\nContact ustoday for tailored geopolitical insights and industry-specific advisory services.\n\n## Sign up for our newsletter\n\nReceive insights from our experts every week in your inbox. [...] AI is now a priority for all governments in Asia, with each taking a different approach. Government-to-government coordination is focusing on finding ways to collaborate in the regulatory space on issues like export controls and supply chain monitoring. Elected officials are looking to support their domestic industries in the hope that local companies increase their participation in global markets.\n\n## The epicenter of AI technology is Taiwan",
+                    "score": 0.20856592
+                  },
+                  {
+                    "title": "China's trade surplus soars past $1 trillion as AI boom powers exports | Reuters",
+                    "url": "https://www.reuters.com/world/asia-pacific/chinas-trade-surplus-soars-past-1-trillion-october-exports-jump-352-yy-2026-11-10",
+                    "source": "reuters.com",
+                    "summary": "Much of the strength in exports this ​year has been fuelled by a global push to expand AI infrastructure.\n\n\"The outlook for exports depends on how long the AI boom will last,\" Macquarie analysts wrote. They expect China's exports to accelerate ​further in the fourth quarter before starting to slow from the first quarter of 2027.\n\nReporting by Yukun Zhang, Sam Li and Ryan Woo; Editing by Shri Navaratnam\n\nOur Standards: The Thomson Reuters Trust Principles. [...] BEIJING, Nov 10 (Reuters) - China's trade surplus surged past $1 trillion in the first 10 months as a global race to build AI infrastructure buoyed sales ​of high-tech products and helped offset weak domestic demand, a dynamic likely to sharpen tensions with major trading partners. [...] The figures highlight ‌Beijing's growing reliance on overseas demand to support an economy hobbled by subdued consumption and a protracted property slump. But while the global AI investment boom is expected to keep demand for Chinese technology products strong into 2027, it risks deepening domestic imbalances and fuelling trade frictions with partners including the European Union.\n\nMake sense of global markets with the Trading Day newsletter. Sign up here.",
+                    "score": 0.4908534
+                  },
+                  {
+                    "title": "UA regents delay statement of intent on AI amid feedback",
+                    "url": "https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback",
+                    "source": "alaskasnewssource.com",
+                    "summary": "Work on the university system’s intent language began in 2025, Taylor said, when faculty requested guidance from administration on the use of AI in the classroom.\n\nWhen complete, the document is designed not to act as policy, but simply to outline the approach the UA institution is taking toward AI, develop guiding principles and put forward expectations of future actions from the administration, including eventually coming up with actual policy. [...] The action was recommended by Chief Technology Officer Benjamin Shier, and pushes off the final decision on the university system’s AI intent language until February, or until requested by UA President Matt Cooper.\n\nTaylor described the feedback being received about the draft “AI Engaged” document as “passionate.” [...] FAIRBANKS, Alaska (KTUU/KTVF) - The University of Alaska (UA) Board of Regents delayed releasing a statement of intent covering the system’s use of artificial intelligence during its November meeting Friday, giving the information technology department time to incorporate feedback from faculty, staff and students into the document.",
+                    "score": 0.22167104
+                  },
+                  {
+                    "title": "Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry, Critics Warn",
+                    "url": "https://time.com/article/2026/11/10/permitting-bill-data-centers",
+                    "source": "time.com",
+                    "summary": "Personalized Content\n\n## Business\n\nFollow this section to personalize your feed and get instant alerts.\n\nWHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\nPersonalized Content\n\n## AI\n\nFollow this tag to personalize your feed and get instant alerts.\n\nWHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\n# Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry, Critics Warn\n\nAndrew R. Chow\n\nPersonalized Content\n\nAndrew R. Chow\n\n## Andrew R. Chow [...] The bill’s advocates argue that its passage would serve as a rare bipartisan win and a victory for affordability. But critics, especially those on the left, are calling for Democrats to wait until the next Congress. “You just heard Americans demand much more of a say in a way that AI is shaping their lives,” says Michele Jawando, the CEO of Omidyar Network. “Whenever you try to ram something through in a lame duck Congress before you have a hundred new House members, that’s never a good look [...] WHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\nCorrespondent\n\nNarrated by TIME AI.",
+                    "score": 0.19392508
+                  }
+                ]
+              }
+            },
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "AI",
+                "search_type": "Top"
+              },
+              "result": {
+                "tool": "search_tweets",
+                "query": "AI",
+                "search_type": "Top",
+                "items": [
+                  {
+                    "title": "INSTEAD OF WATCHING NETFLIX TONIGHT. Spend 2 hours with this. Claude AI FULL COURSE that teaches you how to BUILD and AU",
+                    "summary": "INSTEAD OF WATCHING NETFLIX TONIGHT. Spend 2 hours with this. Claude AI FULL COURSE that teaches you how to BUILD and AUTOMATE anything. The people who watch this tonight will wake up tomorrow with a new skill. Watch it and bookmark it now. https://t.co/koWK75KRhz",
+                    "url": "https://x.com/ai_with_jyoti/status/2119270857461858487",
+                    "source": "@ai_with_jyoti",
+                    "date": "Sun Nov 08 03:28:41 +0000 2026",
+                    "metrics": {
+                      "favorites": 8048,
+                      "retweets": 1135,
+                      "views": "646288"
+                    }
+                  },
+                  {
+                    "title": "This is f*cking insane. Elon Musk, the man behind SpaceXAI, was asked how a 20-year-old can avoid being left behind in t",
+                    "summary": "This is f*cking insane. Elon Musk, the man behind SpaceXAI, was asked how a 20-year-old can avoid being left behind in the AI transition. His answer:\n\n\"To know what to ask the robots for, you need to formulate the question\"\n\nIn 84 seconds, he lays out the plan: get the broadest education you can. Arts, sciences, engineering. The more you know, the better you can tell AI what you want\n\nHe even names the skill: prompt engineering. You have to convey your wishes to the robot\n\nThen the wild part: there will be so many robots and so much AI that they'll be eager for any request you have, and it gets done immediately\n\nBroad Knowledge → The Right Question → Grok Bot → A Team of Bots → Harness → Done Immediately\n\nSave this before it disappears from your feed\n\nPick your field. Every guide here comes straight from SpaceXAI:\n\nGetting started with Grok Bot\nhttps://t.co/msqNlV4Ufv\n\nEngineering: run a fleet of engineer bots\nhttps://t.co/RSjrvkEIpn\n\nSix bots, one mobile game studio\nhttps://t.co/4qESPIbEwk\n\nDesign: explore more ideas with always-on bots\nhttps://t.co/M1vloVQcEN\n\nPMs: for the first time, a team that reports to you\nhttps://t.co/y4iqRpsyxN\n\nMarketing: six bots that research competitors and draft positioning\nhttps://t.co/O63VVgwZqR\n\nFounder-led sales: research and outreach with bots\nhttps://t.co/F4NYyxqcSo\n\nRecruiting: interview prep, scorecards, sourcing\nhttps://t.co/UBfaapiBqU\n\nLegal ops: contracts, triage and 1:1 prep\nhttps://t.co/6WZPk7k7xw\n\nSupport: work the whole queue with bots\nhttps://t.co/tUFlIeqzC4\n\nTemplates: share a bot as a recipe\nhttps://t.co/lsG4KbeMcA\n\nEvery guide here is free\n\nSoon AI will do the work. The ones who know what to ask will run it\n\n95% will wait for someone to tell them what to study, the 5% who learn to give AI clear jobs will have a team of bots working for them\n\nBookmark it and open the guide for your field tonight\n\nThen use the guide below to build your harness before everyone else does ↓",
+                    "url": "https://x.com/0xHashiraa/status/2119831681410425152",
+                    "source": "@0xHashiraa",
+                    "date": "Mon Nov 09 16:37:12 +0000 2026",
+                    "metrics": {
+                      "favorites": 2383,
+                      "retweets": 579,
+                      "views": "160234"
+                    }
+                  },
+                  {
+                    "title": "THIS IS F**KING DANGEROUS.",
+                    "summary": "THIS IS F**KING DANGEROUS.\n\nSOMEONE JUST UNLEASHED AN OPEN SOURCE AI HACKING ARMY TOOL\nTHAT CAN LAUNCH AUTONOMOUS PENTESTING OPERATIONS.\n\nIt’s called SAPPER.\n\nOne AI commander. An entire swarm of AI agents. Real hacking tools running behind the scenes.\n\nHere’s what makes it stand out:\n\n→ One AI commander plans and coordinates the operation\n\n→ Multiple AI agents work together to execute tasks\n\n→ Runs real tools like Nmap and Nuclei\n\n→ Built in hacking knowledge base for the agents\n\n→ Integrates with Claude Code and Codex\n\n→ Runs inside a Kali Linux environment\n\nIt reportedly competed against 634 teams in a Tencent attack and defense competition and operated for 8 hours without human intervention.\n\nFully open source.\n\none commander —> multiple ai hackers—> an entire automated red team\n\nOnly use it in authorized labs and CTF environments.\n\nREPO BELOW",
+                    "url": "https://x.com/MAXdeg0/status/2117947185492807817",
+                    "source": "@MAXdeg0",
+                    "date": "Wed Nov 04 11:48:53 +0000 2026",
+                    "metrics": {
+                      "favorites": 2989,
+                      "retweets": 423,
+                      "views": "335276"
+                    }
+                  },
+                  {
+                    "title": "This is f*cking insane. Former Google CEO Eric Schmidt just told everyone the easiest way to get rich in the next two ye",
+                    "summary": "This is f*cking insane. Former Google CEO Eric Schmidt just told everyone the easiest way to get rich in the next two years, and it's not stocks or crypto:\n\n\"If you really want to make money, it's actually easy, found an agentic AI company, I mean build an agent to do something\n\nIf you build a better agent than anyone else, you can probably build one incredible company and own it yourself\"\n\nThe man who ran Google for 10 years explains in under 30 seconds why the next year or two is the agentic period, and why the window won't stay open\n\nPrompts → Claude Code → Loops → Graphs → Gates → A Company You Own Yourself\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nBuilding effective agents (Anthropic)\nhttps://t.co/mbMyiLIrqx\n\nHow Anthropic built its multi-agent research system\nhttps://t.co/gcKwsDFx5N\n\nHarnesses for long-running agents\nhttps://t.co/p0KbeE6pBF\n\nWriting tools for agents\nhttps://t.co/Rif9SuExCh\n\nClaude Code 101\nhttps://t.co/rma5cTfV6M\n\nClaude Code in action\nhttps://t.co/y7ldRiCZRC\n\nPrompt engineering\nhttps://t.co/wGkkT9tlAO\n\nSubagents (parallel work)\nhttps://t.co/Govs5sjHB0\n\nHooks (checks that can say no)\nhttps://t.co/YigRzFmXr3\n\nCLAUDE.md + memory\nhttps://t.co/EzV1u4QdQd\n\nSkills\nhttps://t.co/c8RGkxgGCt\n\nMCP\nhttps://t.co/tR6oTaM1QK\n\nLangGraph (graphs of agents)\nhttps://t.co/iKq99402hN\n\nKarpathy's autoresearch (an agent in a loop)\nhttps://t.co/gEMaSZMoYc\n\nAll of this costs $0\n\n95% will spend the agentic period scrolling AI threads. The 5% who ship agents will own the companies that come out of it\n\nBookmark it and start with the first link tonight\n\nThen read how to make an agent that works for hours without you in the Loops & Graphs guide below ↓",
+                    "url": "https://x.com/HoodieFade_/status/2119824593753956844",
+                    "source": "@HoodieFade_",
+                    "date": "Mon Nov 09 16:09:02 +0000 2026",
+                    "metrics": {
+                      "favorites": 4993,
+                      "retweets": 942,
+                      "views": "907030"
+                    }
+                  },
+                  {
+                    "title": "‼️ An AI is watching 450+ unsecured cameras around the world, hunting for anyone dressed like Wally. Belgian artist Drie",
+                    "summary": "‼️ An AI is watching 450+ unsecured cameras around the world, hunting for anyone dressed like Wally. Belgian artist Dries Depoorter built it as an artwork.\n\nAlibaba's open Qwen3-VL model runs locally on three gaming GPUs, checking each frame for red-and-white stripes and a bobble hat.\n\nIt has studied 1.68M frames so far and published 13 matches, from the US to Japan and Peru. Depoorter checks every one by hand.",
+                    "url": "https://x.com/IntCyberDigest/status/2119966268979925444",
+                    "source": "@IntCyberDigest",
+                    "date": "Tue Nov 10 01:32:00 +0000 2026",
+                    "metrics": {
+                      "favorites": 417,
+                      "retweets": 44,
+                      "views": "25369"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some notable AI news highlights from today:\n\n1. **AI and Your Job: Threat or Opportunity?**  \n   As AI becomes more integrated into daily life, questions arise about its impact on jobs. Economists suggest that while AI may threaten entry-level positions, it could also create opportunities in sectors like construction and manufacturing. [Read more](https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity) (Source: Fox10TV)\n\n2. **Asia Not Riding but Building the AI Boom**  \n   Asian countries are focusing on their strengths in technology manufacturing to compete in the AI ecosystem. Governments are coordinating efforts to support domestic industries and enhance their global market participation. [Read more](https://www.gisreportsonline.com/r/asia-building-ai-boom) (Source: GIS Reports)\n\n3. **China's Trade Surplus Soars Past $1 Trillion as AI Boom Powers Exports**  \n   China's trade surplus has surged, largely due to a global push for AI infrastructure, which has bolstered high-tech exports. Analysts predict continued demand for Chinese tech products driven by the AI investment boom. [Read more](https://www.reuters.com/world/asia-pacific/chinas-trade-surplus-soars-past-1-trillion-october-exports-jump-352-yy-2026-11-10) (Source: Reuters)\n\n4. **UA Regents Delay Statement of Intent on AI Amid Feedback**  \n   The University of Alaska's Board of Regents has postponed a statement regarding the use of AI in its system to incorporate feedback from faculty and students. [Read more](https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback) (Source: Alaska's News Source)\n\n5. **Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry**  \n   Critics argue that a new bill in Congress could disproportionately benefit the AI data center industry, raising concerns about the implications for public input on AI's role in society. [Read more](https://time.com/article/2026/11/10/permitting-bill-data-centers) (Source: Time)\n\n### Top Tweets About AI:\n\n1. **Claude AI Full Course**  \n   A tweet promoting a full course on Claude AI, encouraging viewers to spend time learning instead of watching Netflix. [View Tweet](https://x.com/ai_with_jyoti/status/2119270857461858487) (Source: @ai_with_jyoti)\n\n2. **Elon Musk on AI Transition**  \n   Elon Musk discusses how young people can avoid being left behind in the AI transition, emphasizing the importance of broad education and prompt engineering. [View Tweet](https://x.com/0xHashiraa/status/2119831681410425152) (Source: @0xHashiraa)\n\n3. **Open Source AI Hacking Tool**  \n   A tweet about an open-source AI hacking tool called SAPPER that can autonomously conduct penetration testing operations. [View Tweet](https://x.com/MAXdeg0/status/2117947185492807817) (Source: @MAXdeg0)\n\n4. **Eric Schmidt on Building AI Companies**  \n   Former Google CEO Eric Schmidt shares insights on founding AI companies and the potential for wealth creation in the coming years. [View Tweet](https://x.com/HoodieFade_/status/2119824593753956844) (Source: @HoodieFade_)\n\n5. **AI Watching Unsecured Cameras**  \n   An AI project that monitors unsecured cameras worldwide to find individuals dressed like Wally, showcasing the intersection of art and technology. [View Tweet](https://x.com/IntCyberDigest/status/2119966268979925444) (Source: @IntCyberDigest)\n\nThese articles and tweets reflect the current discussions and developments in the AI landscape.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "AI and your job: Threat or opportunity?",
+                "url": "https://www.fox10tv.com/2026/11/10/ai-your-job-threat-or-opportunity",
+                "source": "fox10tv.com",
+                "summary": "MOBILE, Ala. (WALA) - Artificial intelligence is becoming a bigger part of everyday life, raising questions about what the technology could mean for workers and their jobs.\n\nSome economists believe AI poses a particular threat to entry-level and repetitive work, including call center, data entry and junior copywriting jobs, according to The Wall Street Journal. Those tasks may be easier to automate. [...] But AI could also create opportunities. A Bloomberg article points to potential job growth in construction and manufacturing as companies build data centers and produce the chips that power the technology. Some higher-skilled office workers could also benefit if AI helps them become more productive. [...] The long-term impact on jobs remains unclear, but workers can take steps to prepare. Exploring AI chatbots, writing assistants and other tools may help people find ways to work more efficiently and develop skills that complement the technology.",
+                "score": 0.42348245
+              },
+              {
+                "title": "Asia not riding but building the AI boom – GIS Reports",
+                "url": "https://www.gisreportsonline.com/r/asia-building-ai-boom",
+                "source": "gisreportsonline.com",
+                "summary": "The AI ecosystem can be generally separated between three elements: models, compute power and supply chains – with the U.S. and China competing and leading for the first two. Asian countries are looking at how they can stand out amid this intense East-West competition, while capitalizing on their strengths in technology manufacturing supply chains. This has led smaller economies to identify their competitive advantages while investing in novel applications for AI in various industries such as [...] Due to demographic realities, manufacturing and exports are essential to Asian economies. AI is expected to support transitions as each country manages declines in their populations and workforce while maintaining economic growth and prosperity.\n\nContact ustoday for tailored geopolitical insights and industry-specific advisory services.\n\n## Sign up for our newsletter\n\nReceive insights from our experts every week in your inbox. [...] AI is now a priority for all governments in Asia, with each taking a different approach. Government-to-government coordination is focusing on finding ways to collaborate in the regulatory space on issues like export controls and supply chain monitoring. Elected officials are looking to support their domestic industries in the hope that local companies increase their participation in global markets.\n\n## The epicenter of AI technology is Taiwan",
+                "score": 0.20856592
+              },
+              {
+                "title": "China's trade surplus soars past $1 trillion as AI boom powers exports | Reuters",
+                "url": "https://www.reuters.com/world/asia-pacific/chinas-trade-surplus-soars-past-1-trillion-october-exports-jump-352-yy-2026-11-10",
+                "source": "reuters.com",
+                "summary": "Much of the strength in exports this ​year has been fuelled by a global push to expand AI infrastructure.\n\n\"The outlook for exports depends on how long the AI boom will last,\" Macquarie analysts wrote. They expect China's exports to accelerate ​further in the fourth quarter before starting to slow from the first quarter of 2027.\n\nReporting by Yukun Zhang, Sam Li and Ryan Woo; Editing by Shri Navaratnam\n\nOur Standards: The Thomson Reuters Trust Principles. [...] BEIJING, Nov 10 (Reuters) - China's trade surplus surged past $1 trillion in the first 10 months as a global race to build AI infrastructure buoyed sales ​of high-tech products and helped offset weak domestic demand, a dynamic likely to sharpen tensions with major trading partners. [...] The figures highlight ‌Beijing's growing reliance on overseas demand to support an economy hobbled by subdued consumption and a protracted property slump. But while the global AI investment boom is expected to keep demand for Chinese technology products strong into 2027, it risks deepening domestic imbalances and fuelling trade frictions with partners including the European Union.\n\nMake sense of global markets with the Trading Day newsletter. Sign up here.",
+                "score": 0.4908534
+              },
+              {
+                "title": "UA regents delay statement of intent on AI amid feedback",
+                "url": "https://www.alaskasnewssource.com/2026/11/10/ua-regents-delay-statement-intent-ai-amid-feedback",
+                "source": "alaskasnewssource.com",
+                "summary": "Work on the university system’s intent language began in 2025, Taylor said, when faculty requested guidance from administration on the use of AI in the classroom.\n\nWhen complete, the document is designed not to act as policy, but simply to outline the approach the UA institution is taking toward AI, develop guiding principles and put forward expectations of future actions from the administration, including eventually coming up with actual policy. [...] The action was recommended by Chief Technology Officer Benjamin Shier, and pushes off the final decision on the university system’s AI intent language until February, or until requested by UA President Matt Cooper.\n\nTaylor described the feedback being received about the draft “AI Engaged” document as “passionate.” [...] FAIRBANKS, Alaska (KTUU/KTVF) - The University of Alaska (UA) Board of Regents delayed releasing a statement of intent covering the system’s use of artificial intelligence during its November meeting Friday, giving the information technology department time to incorporate feedback from faculty, staff and students into the document.",
+                "score": 0.22167104
+              },
+              {
+                "title": "Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry, Critics Warn",
+                "url": "https://time.com/article/2026/11/10/permitting-bill-data-centers",
+                "source": "time.com",
+                "summary": "Personalized Content\n\n## Business\n\nFollow this section to personalize your feed and get instant alerts.\n\nWHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\nPersonalized Content\n\n## AI\n\nFollow this tag to personalize your feed and get instant alerts.\n\nWHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\n# Congress’s Permitting Bill Is a ‘Massive Giveaway’ to the AI Data Center Industry, Critics Warn\n\nAndrew R. Chow\n\nPersonalized Content\n\nAndrew R. Chow\n\n## Andrew R. Chow [...] The bill’s advocates argue that its passage would serve as a rare bipartisan win and a victory for affordability. But critics, especially those on the left, are calling for Democrats to wait until the next Congress. “You just heard Americans demand much more of a say in a way that AI is shaping their lives,” says Michele Jawando, the CEO of Omidyar Network. “Whenever you try to ram something through in a lame duck Congress before you have a hundred new House members, that’s never a good look [...] WHY FOLLOW?\n\nUpdate your preferences in Account Settings\n\nCorrespondent\n\nNarrated by TIME AI.",
+                "score": 0.19392508
+              }
+            ]
+          }
+        },
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "AI",
+            "search_type": "Top"
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "AI",
+            "search_type": "Top",
+            "items": [
+              {
+                "title": "INSTEAD OF WATCHING NETFLIX TONIGHT. Spend 2 hours with this. Claude AI FULL COURSE that teaches you how to BUILD and AU",
+                "summary": "INSTEAD OF WATCHING NETFLIX TONIGHT. Spend 2 hours with this. Claude AI FULL COURSE that teaches you how to BUILD and AUTOMATE anything. The people who watch this tonight will wake up tomorrow with a new skill. Watch it and bookmark it now. https://t.co/koWK75KRhz",
+                "url": "https://x.com/ai_with_jyoti/status/2119270857461858487",
+                "source": "@ai_with_jyoti",
+                "date": "Sun Nov 08 03:28:41 +0000 2026",
+                "metrics": {
+                  "favorites": 8048,
+                  "retweets": 1135,
+                  "views": "646288"
+                }
+              },
+              {
+                "title": "This is f*cking insane. Elon Musk, the man behind SpaceXAI, was asked how a 20-year-old can avoid being left behind in t",
+                "summary": "This is f*cking insane. Elon Musk, the man behind SpaceXAI, was asked how a 20-year-old can avoid being left behind in the AI transition. His answer:\n\n\"To know what to ask the robots for, you need to formulate the question\"\n\nIn 84 seconds, he lays out the plan: get the broadest education you can. Arts, sciences, engineering. The more you know, the better you can tell AI what you want\n\nHe even names the skill: prompt engineering. You have to convey your wishes to the robot\n\nThen the wild part: there will be so many robots and so much AI that they'll be eager for any request you have, and it gets done immediately\n\nBroad Knowledge → The Right Question → Grok Bot → A Team of Bots → Harness → Done Immediately\n\nSave this before it disappears from your feed\n\nPick your field. Every guide here comes straight from SpaceXAI:\n\nGetting started with Grok Bot\nhttps://t.co/msqNlV4Ufv\n\nEngineering: run a fleet of engineer bots\nhttps://t.co/RSjrvkEIpn\n\nSix bots, one mobile game studio\nhttps://t.co/4qESPIbEwk\n\nDesign: explore more ideas with always-on bots\nhttps://t.co/M1vloVQcEN\n\nPMs: for the first time, a team that reports to you\nhttps://t.co/y4iqRpsyxN\n\nMarketing: six bots that research competitors and draft positioning\nhttps://t.co/O63VVgwZqR\n\nFounder-led sales: research and outreach with bots\nhttps://t.co/F4NYyxqcSo\n\nRecruiting: interview prep, scorecards, sourcing\nhttps://t.co/UBfaapiBqU\n\nLegal ops: contracts, triage and 1:1 prep\nhttps://t.co/6WZPk7k7xw\n\nSupport: work the whole queue with bots\nhttps://t.co/tUFlIeqzC4\n\nTemplates: share a bot as a recipe\nhttps://t.co/lsG4KbeMcA\n\nEvery guide here is free\n\nSoon AI will do the work. The ones who know what to ask will run it\n\n95% will wait for someone to tell them what to study, the 5% who learn to give AI clear jobs will have a team of bots working for them\n\nBookmark it and open the guide for your field tonight\n\nThen use the guide below to build your harness before everyone else does ↓",
+                "url": "https://x.com/0xHashiraa/status/2119831681410425152",
+                "source": "@0xHashiraa",
+                "date": "Mon Nov 09 16:37:12 +0000 2026",
+                "metrics": {
+                  "favorites": 2383,
+                  "retweets": 579,
+                  "views": "160234"
+                }
+              },
+              {
+                "title": "THIS IS F**KING DANGEROUS.",
+                "summary": "THIS IS F**KING DANGEROUS.\n\nSOMEONE JUST UNLEASHED AN OPEN SOURCE AI HACKING ARMY TOOL\nTHAT CAN LAUNCH AUTONOMOUS PENTESTING OPERATIONS.\n\nIt’s called SAPPER.\n\nOne AI commander. An entire swarm of AI agents. Real hacking tools running behind the scenes.\n\nHere’s what makes it stand out:\n\n→ One AI commander plans and coordinates the operation\n\n→ Multiple AI agents work together to execute tasks\n\n→ Runs real tools like Nmap and Nuclei\n\n→ Built in hacking knowledge base for the agents\n\n→ Integrates with Claude Code and Codex\n\n→ Runs inside a Kali Linux environment\n\nIt reportedly competed against 634 teams in a Tencent attack and defense competition and operated for 8 hours without human intervention.\n\nFully open source.\n\none commander —> multiple ai hackers—> an entire automated red team\n\nOnly use it in authorized labs and CTF environments.\n\nREPO BELOW",
+                "url": "https://x.com/MAXdeg0/status/2117947185492807817",
+                "source": "@MAXdeg0",
+                "date": "Wed Nov 04 11:48:53 +0000 2026",
+                "metrics": {
+                  "favorites": 2989,
+                  "retweets": 423,
+                  "views": "335276"
+                }
+              },
+              {
+                "title": "This is f*cking insane. Former Google CEO Eric Schmidt just told everyone the easiest way to get rich in the next two ye",
+                "summary": "This is f*cking insane. Former Google CEO Eric Schmidt just told everyone the easiest way to get rich in the next two years, and it's not stocks or crypto:\n\n\"If you really want to make money, it's actually easy, found an agentic AI company, I mean build an agent to do something\n\nIf you build a better agent than anyone else, you can probably build one incredible company and own it yourself\"\n\nThe man who ran Google for 10 years explains in under 30 seconds why the next year or two is the agentic period, and why the window won't stay open\n\nPrompts → Claude Code → Loops → Graphs → Gates → A Company You Own Yourself\n\nSave this before it disappears from your feed\n\nEverything below is free:\n\nBuilding effective agents (Anthropic)\nhttps://t.co/mbMyiLIrqx\n\nHow Anthropic built its multi-agent research system\nhttps://t.co/gcKwsDFx5N\n\nHarnesses for long-running agents\nhttps://t.co/p0KbeE6pBF\n\nWriting tools for agents\nhttps://t.co/Rif9SuExCh\n\nClaude Code 101\nhttps://t.co/rma5cTfV6M\n\nClaude Code in action\nhttps://t.co/y7ldRiCZRC\n\nPrompt engineering\nhttps://t.co/wGkkT9tlAO\n\nSubagents (parallel work)\nhttps://t.co/Govs5sjHB0\n\nHooks (checks that can say no)\nhttps://t.co/YigRzFmXr3\n\nCLAUDE.md + memory\nhttps://t.co/EzV1u4QdQd\n\nSkills\nhttps://t.co/c8RGkxgGCt\n\nMCP\nhttps://t.co/tR6oTaM1QK\n\nLangGraph (graphs of agents)\nhttps://t.co/iKq99402hN\n\nKarpathy's autoresearch (an agent in a loop)\nhttps://t.co/gEMaSZMoYc\n\nAll of this costs $0\n\n95% will spend the agentic period scrolling AI threads. The 5% who ship agents will own the companies that come out of it\n\nBookmark it and start with the first link tonight\n\nThen read how to make an agent that works for hours without you in the Loops & Graphs guide below ↓",
+                "url": "https://x.com/HoodieFade_/status/2119824593753956844",
+                "source": "@HoodieFade_",
+                "date": "Mon Nov 09 16:09:02 +0000 2026",
+                "metrics": {
+                  "favorites": 4993,
+                  "retweets": 942,
+                  "views": "907030"
+                }
+              },
+              {
+                "title": "‼️ An AI is watching 450+ unsecured cameras around the world, hunting for anyone dressed like Wally. Belgian artist Drie",
+                "summary": "‼️ An AI is watching 450+ unsecured cameras around the world, hunting for anyone dressed like Wally. Belgian artist Dries Depoorter built it as an artwork.\n\nAlibaba's open Qwen3-VL model runs locally on three gaming GPUs, checking each frame for red-and-white stripes and a bobble hat.\n\nIt has studied 1.68M frames so far and published 13 matches, from the US to Japan and Peru. Depoorter checks every one by hand.",
+                "url": "https://x.com/IntCyberDigest/status/2119966268979925444",
+                "source": "@IntCyberDigest",
+                "date": "Tue Nov 10 01:32:00 +0000 2026",
+                "metrics": {
+                  "favorites": 417,
+                  "retweets": 44,
+                  "views": "25369"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T16:07:48"
+    }
+  ]
+}
