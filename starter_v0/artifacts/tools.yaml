@@ -158,27 +158,11 @@ tools:
         max_chars: {type: integer, default: 8000, description: "Số ký tự text tối đa trả về."}
       required: [arxiv_url]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   # ---------------- New tool (team) ----------------
->>>>>>> 060d87d65961f5a5a4b10b54e109bd0e5f908e4a
   - name: hn_top
     description: >-
       Lấy các bài đang hot trên Hacker News (cộng đồng lập trình viên/tech).
       CHỈ DÙNG khi người dùng nhắc "Hacker News" hoặc "HN".
-<<<<<<< HEAD
-      KHÔNG dùng cho tin báo chí chung (dùng lookup) hay Twitter (dùng social_search/timeline).
-    parameters:
-      type: object
-      properties:
-        story_type: {type: string, enum: [top, new, best], default: "top", description: "'top' = đang hot (mặc định), 'new' = mới nhất, 'best' = vote cao nhất."}
-        query: {type: string, default: "", description: "Từ khóa lọc tiêu đề, VD 'AI'. Để trống nếu không lọc."}
-        limit: {type: integer, default: 5, description: "Số bài trả về, VD '10 bài' -> 10."}
-      required: []
-=======
->>>>>>> 4abe0fc66a385391471c8959cd4629e10f3d033b
-=======
       KHÔNG DÙNG cho tin báo chí/web chung (dùng lookup) hay Twitter (dùng social_search/timeline),
       và không dùng khi người dùng đã nói bỏ HN để chuyển nguồn khác.
     parameters:
@@ -188,4 +172,3 @@ tools:
         query: {type: string, default: "", description: "Từ khóa lọc tiêu đề, VD 'về AI' → 'AI'. Để trống nếu người dùng không nêu chủ đề."}
         limit: {type: integer, default: 5, description: "Số bài người dùng yêu cầu (1–30). VD '10 bài' → 10."}
       required: []
->>>>>>> 060d87d65961f5a5a4b10b54e109bd0e5f908e4a

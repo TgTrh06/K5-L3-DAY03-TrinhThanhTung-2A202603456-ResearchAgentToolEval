@@ -124,7 +124,4 @@ tools:
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 060d87d65961f5a5a4b10b54e109bd0e5f908e4a
+
