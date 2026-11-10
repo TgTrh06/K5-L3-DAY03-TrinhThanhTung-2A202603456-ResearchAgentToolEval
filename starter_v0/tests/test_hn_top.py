@@ -8,6 +8,7 @@ Chạy:  pytest tests/test_hn_top.py -v
 import importlib
 
 import pytest
+import requests
 
 from tools import TOOL_FUNCTIONS
 from tools.hn_top import hn_top
@@ -26,11 +27,16 @@ FAKE_ITEMS = {
 
 
 class FakeResponse:
-    def __init__(self, data):
+    def __init__(self, data, status_code=200):
         self._data = data
+        self.status_code = status_code
 
     def json(self):
         return self._data
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise requests.HTTPError(f"HTTP {self.status_code}")
 
 
 @pytest.fixture
@@ -76,6 +82,21 @@ def test_limit_is_respected(fake_hn, limit):
     assert len(hn_top(limit=limit)["items"]) == limit
 
 
+@pytest.mark.parametrize("limit", [0, -1, 31, True, "5"])
+def test_invalid_limit_returns_error_without_request(monkeypatch, limit):
+    monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: pytest.fail("unexpected request"))
+    result = hn_top(limit=limit)
+    assert result["error"] == "ValueError"
+    assert "limit" in result["message"]
+
+
+def test_invalid_story_type_returns_error_without_request(monkeypatch):
+    monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: pytest.fail("unexpected request"))
+    result = hn_top(story_type="../../admin")
+    assert result["error"] == "ValueError"
+    assert "story_type" in result["message"]
+
+
 def test_query_filters_title_case_insensitive(fake_hn):
     titles = [i["title"] for i in hn_top(query="ai", limit=10)["items"]]
     assert titles == [
@@ -110,3 +131,28 @@ def test_stops_fetching_after_limit(fake_hn):
     hn_top(limit=1)
     # 1 request lấy danh sách id + 1 request lấy item đầu tiên
     assert len(fake_hn) == 2
+
+
+def test_http_error_returns_error_dict(monkeypatch):
+    monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: FakeResponse({}, status_code=503))
+    result = hn_top()
+    assert result["tool"] == "hn_top"
+    assert result["error"] == "HTTPError"
+    assert "503" in result["message"]
+
+
+def test_timeout_returns_error_dict(monkeypatch):
+    def timeout(*args, **kwargs):
+        raise requests.Timeout("request timed out")
+
+    monkeypatch.setattr(hn_module.requests, "get", timeout)
+    result = hn_top()
+    assert result["error"] == "Timeout"
+    assert result["message"] == "request timed out"
+
+
+def test_unexpected_stories_response_returns_error_dict(monkeypatch):
+    monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: FakeResponse({"error": "bad response"}))
+    result = hn_top()
+    assert result["error"] == "ValueError"
+    assert "must be a list" in result["message"]

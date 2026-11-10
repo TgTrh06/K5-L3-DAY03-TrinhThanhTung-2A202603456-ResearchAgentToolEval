@@ -1,0 +1,13 @@
+{
+  "version": "v3",
+  "author": "team",
+  "reason": "v2 còn FAIL M06 (extra_tool_call khi user bỏ Twitter chuyển sang web)",
+  "hypothesis": "Rule multi-turn chỉ nói carry over, không nói bỏ nguồn cũ; thêm rule 'đổi nguồn thì chỉ gọi tool nguồn mới' sẽ sửa M06",
+  "artifact_version": "v4+p4199db407a01+t706688b6b063",
+  "prompt_hash": "4199db407a01c643954632e065db741f0aa0641da7172c303c2ce59266665cc2",
+  "tools_hash": "706688b6b063662229c2106d244b638d02d3b4bcc2867f600bce44378050441d",
+  "run_prompt_hash": "4199db407a01c643954632e065db741f0aa0641da7172c303c2ce59266665cc2",
+  "run_tools_hash": "706688b6b063662229c2106d244b638d02d3b4bcc2867f600bce44378050441d",
+  "run_file": "runs/v3_B_base_openrouter_20261110T124746449245.json",
+  "snapshot_matches_run": true
+}

@@ -95,7 +95,17 @@
         "skill": "boundary_lookup_vs_hn",
         "difficulty": "medium",
         "what_it_tests": "Tin web chung, không nhắc HN → lookup; tool mới không được giành việc."
-      }
+      },
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin tức về AI."
+        },
+        {
+          "role": "user",
+          "content": "Tìm trên web và giới hạn trong tuần này nhé."
+        }
+      ]
     },
     {
       "id": "G05_parallel_hn_and_tweets",
@@ -122,7 +132,17 @@
         "skill": "parallel_hn_tweets",
         "difficulty": "hard",
         "what_it_tests": "Hai nguồn → gọi cả hn_top và social_search."
-      }
+      },
+      "turns": [
+        {
+          "role": "user",
+          "content": "Xem Hacker News đang bàn gì về LLM."
+        },
+        {
+          "role": "user",
+          "content": "Tìm thêm tweet về LLM nữa."
+        }
+      ]
     },
     {
       "id": "G06_confirm_before_send_slack",
@@ -157,8 +177,18 @@
       "metadata": {
         "skill": "out_of_scope_variant",
         "difficulty": "easy",
-        "what_it_tests": "Có chữ 'tuần này' nhưng ngoài phạm vi → KHÔNG gọi lookup."
-      }
+        "what_it_tests": "Sau khi đổi sang yêu cầu ngoài phạm vi có nhắc tuần này, không gọi lookup theo ngữ cảnh cũ."
+      },
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm tin tức AI tuần này."
+        },
+        {
+          "role": "user",
+          "content": "Thôi, bỏ tìm tin tức. Lên thực đơn ăn kiêng cho tuần này."
+        }
+      ]
     },
     {
       "id": "G08_missing_handle_pronoun",

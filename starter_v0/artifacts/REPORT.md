@@ -18,9 +18,9 @@
 
 Research Agent hỗ trợ tìm bài đăng gần đây theo tài khoản hoặc từ khóa, tra cứu thông tin trên web và tin tức, đọc URL, tìm bài nghiên cứu trên arXiv và tra cứu chính sách nội bộ. Agent cũng có thể hỏi lại khi thiếu thông tin, tổng hợp kết quả thành digest hoặc lấy các bài đang hot trên Hacker News.
 
-**Link dùng thử (deploy):**
+**Chạy thử local:**
 
-Đang cập nhật — nhóm chưa có UI/link demo.
+Từ thư mục `starter_v0/`, chạy `streamlit run app.py`, sau đó mở `http://localhost:8501`.
 
 ## A2. Tool agent có
 
@@ -53,6 +53,8 @@ Research Agent hỗ trợ tìm bài đăng gần đây theo tài khoản hoặc 
 ## B1. Version Evidence
 
 Fill from `artifacts/version_log.csv` and `runs/*.json`.
+
+Snapshot audit: `v0` and `v3` match both prompt and tool hashes in their run JSON. The `v2` tool snapshot matches its run, but the historical `v1` prompt/tools and `v2` prompt could not be recovered from Git or editor history; their saved files are marked as reconstructed in `artifacts/versions/*/meta.json` and should not be treated as exact run inputs.
 
 | Version | Changed Artifact | Hypothesis | Metric Before | Metric After | Run File |
 |---|---|---|---:|---:|---|
