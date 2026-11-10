@@ -613,12 +613,10 @@ def page_answers(cfg: dict[str, Any]) -> None:
 def page_telegram(cfg: dict[str, Any]) -> None:
     st.title("📨 Telegram")
 
-    st.markdown(
-        f"- `TELEGRAM_BOT_TOKEN`: {mask(os.getenv('TELEGRAM_BOT_TOKEN'))}\n"
-        f"- `TELEGRAM_CHAT_ID` (kênh nhận bản tin): {mask(os.getenv('TELEGRAM_CHAT_ID'))}\n"
-        f"- `TELEGRAM_ALLOWED_CHAT_IDS` (ai được chat với bot): "
-        f"{os.getenv('TELEGRAM_ALLOWED_CHAT_IDS') or '⚠️ chưa đặt — ai cũng dùng được bot'}"
-    )
+    # Không hiển thị token / chat id lên UI (UI có thể được share qua link public).
+    missing = [k for k in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID") if not os.getenv(k)]
+    if missing:
+        st.warning("Chưa cấu hình Telegram trong `.env`: " + ", ".join(f"`{k}`" for k in missing))
 
     # ---- A. Gửi bản tin lên kênh ----
     st.subheader("A. Gửi bản tin lên kênh")
@@ -644,7 +642,10 @@ def page_telegram(cfg: dict[str, Any]) -> None:
         if st.button("▶️ Start bot", disabled=not os.getenv("TELEGRAM_BOT_TOKEN")):
             start_bot(cfg["provider"], cfg["version_choice"], cfg["label"])
             st.rerun()
-    st.button("🔄 Làm mới log")
+    l1, l2 = st.columns(2)
+    l1.button("🔄 Làm mới log", **STRETCH)
+    if l2.button("🗑 Xoá log cũ", **STRETCH) and BOT_LOG.exists():
+        BOT_LOG.write_text("", encoding="utf-8")
     st.code(tail(BOT_LOG), language="text")
 
 

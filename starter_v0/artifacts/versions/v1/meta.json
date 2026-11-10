@@ -7,10 +7,11 @@
   "parent": "v0",
   "changed_artifact": "system_prompt+tools",
   "artifact_version": "v1+p96bc397b006f+taaa8defe599b",
-  "prompt_hash": "a0f559d98d30001a43f6dfa7ea338d24381dfdf46fbc440a697e4d841e97ab55",
+  "prompt_hash": "11fe4807f6c22662ab04865142a83c9b2a238768e825909ae7c879e7e50e4719",
   "tools_hash": "75c1a0e6eaf6dea98af4c9b1b77548f520f18341435c263200e5d39fc5e72ac5",
   "run_prompt_hash": "96bc397b006f8a3972ceaadbf6f8789a3ad3bdfcc87791ee96f29f2e633bc765",
   "run_tools_hash": "aaa8defe599b8659fab40c4b8aac425cf66a81675656a8fc4f2756bbdd91a882",
   "run_file": "runs/v1_B_base_openrouter_20261110T104710725977.json",
-  "snapshot_matches_run": false
+  "snapshot_matches_run": false,
+  "snapshot_note": "Merge conflict markers resolved; historical run hash is retained separately and this snapshot is not an exact copy of the run input."
 }

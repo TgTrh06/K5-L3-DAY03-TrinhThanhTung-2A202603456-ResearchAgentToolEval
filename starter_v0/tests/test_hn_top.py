@@ -11,11 +11,10 @@ import pytest
 import requests
 
 from tools import TOOL_FUNCTIONS
-from tools.hn_top import hn_top
+from tools.hacker_news.tool import hn_top
 
-# Lấy đúng MODULE tools/hn_top.py. Không dùng `import tools.hn_top as ...` vì trong
-# tools/__init__.py dòng `from .hn_top import hn_top` khiến tools.hn_top trỏ tới HÀM.
-hn_module = importlib.import_module("tools.hn_top")
+# Load the implementation module from its contract folder.
+hn_module = importlib.import_module("tools.hacker_news.tool")
 
 # Dữ liệu giả: id -> item. Item 3 cố ý không có "url" để test link dự phòng.
 FAKE_ITEMS = {
@@ -55,13 +54,13 @@ def fake_hn(monkeypatch):
     return called_urls
 
 
-# ---------- Đăng ký tool ----------
+# ---------- Tool registration ----------
 
 def test_registered_in_tool_functions():
     assert TOOL_FUNCTIONS.get("hn_top") is hn_top
 
 
-# ---------- Định dạng kết quả ----------
+# ---------- Result shape ----------
 
 def test_result_shape(fake_hn):
     result = hn_top()
@@ -75,26 +74,26 @@ def test_default_limit_is_5_or_less(fake_hn):
     assert len(hn_top()["items"]) <= 5
 
 
-# ---------- Tham số ----------
+# ---------- Parameters ----------
 
 @pytest.mark.parametrize("limit", [1, 2, 3])
 def test_limit_is_respected(fake_hn, limit):
     assert len(hn_top(limit=limit)["items"]) == limit
 
 
-@pytest.mark.parametrize("limit", [0, -1, 31, True, "5"])
+@pytest.mark.parametrize("limit", [0, -1, True, "bad", None])
 def test_invalid_limit_returns_error_without_request(monkeypatch, limit):
     monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: pytest.fail("unexpected request"))
     result = hn_top(limit=limit)
-    assert result["error"] == "ValueError"
-    assert "limit" in result["message"]
+    assert "error" in result
+    assert "limit" in result["error"]
 
 
 def test_invalid_story_type_returns_error_without_request(monkeypatch):
     monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: pytest.fail("unexpected request"))
     result = hn_top(story_type="../../admin")
-    assert result["error"] == "ValueError"
-    assert "story_type" in result["message"]
+    assert "error" in result
+    assert "story_type" in result["error"]
 
 
 def test_query_filters_title_case_insensitive(fake_hn):
@@ -116,7 +115,7 @@ def test_story_type_selects_endpoint(fake_hn, story_type):
     assert fake_hn[0].endswith(f"/{story_type}stories.json")
 
 
-# ---------- Trường hợp biên ----------
+# ---------- Edge cases ----------
 
 def test_missing_url_falls_back_to_hn_link(fake_hn):
     items = hn_top(query="Ask HN")["items"]
@@ -124,7 +123,7 @@ def test_missing_url_falls_back_to_hn_link(fake_hn):
 
 
 def test_no_match_returns_empty_list(fake_hn):
-    assert hn_top(query="blockchain") == {"items": []}
+    assert hn_top(query="blockchain")["items"] == []
 
 
 def test_stops_fetching_after_limit(fake_hn):
@@ -133,12 +132,16 @@ def test_stops_fetching_after_limit(fake_hn):
     assert len(fake_hn) == 2
 
 
+def test_limit_above_maximum_is_capped(fake_hn):
+    result = hn_top(limit=31)
+    assert len(result["items"]) <= 30
+
+
 def test_http_error_returns_error_dict(monkeypatch):
     monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: FakeResponse({}, status_code=503))
     result = hn_top()
-    assert result["tool"] == "hn_top"
-    assert result["error"] == "HTTPError"
-    assert "503" in result["message"]
+    assert "error" in result
+    assert "503" in result["error"]
 
 
 def test_timeout_returns_error_dict(monkeypatch):
@@ -147,12 +150,21 @@ def test_timeout_returns_error_dict(monkeypatch):
 
     monkeypatch.setattr(hn_module.requests, "get", timeout)
     result = hn_top()
-    assert result["error"] == "Timeout"
-    assert result["message"] == "request timed out"
+    assert "request timed out" in result["error"]
 
 
 def test_unexpected_stories_response_returns_error_dict(monkeypatch):
     monkeypatch.setattr(hn_module.requests, "get", lambda *args, **kwargs: FakeResponse({"error": "bad response"}))
     result = hn_top()
-    assert result["error"] == "ValueError"
-    assert "must be a list" in result["message"]
+    assert "unexpected format" in result["error"]
+
+
+def test_unexpected_item_response_returns_error_dict(monkeypatch):
+    def wrong_shape(url, **kwargs):
+        if url.endswith("stories.json"):
+            return FakeResponse([1])
+        return FakeResponse(["not", "an", "item"])
+
+    monkeypatch.setattr(hn_module.requests, "get", wrong_shape)
+    result = hn_top()
+    assert "unexpected format" in result["error"]
