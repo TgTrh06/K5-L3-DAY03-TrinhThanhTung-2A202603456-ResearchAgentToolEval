@@ -16,33 +16,35 @@
 
 ## A1. Agent này làm được gì
 
-> 1–2 câu mô tả agent dùng để làm gì (cho team khác hiểu nhanh).
-
-Ví dụ: "Research agent: tìm tin theo từ khóa / theo tài khoản, đọc URL, tổng hợp thành digest, và gửi lên Telegram khi được xác nhận."
+Research Agent hỗ trợ tìm bài đăng gần đây theo tài khoản hoặc từ khóa, tra cứu thông tin trên web và tin tức, đọc URL, tìm bài nghiên cứu trên arXiv và tra cứu chính sách nội bộ. Agent cũng có thể hỏi lại khi thiếu thông tin, tổng hợp kết quả thành digest hoặc lấy các bài đang hot trên Hacker News.
 
 **Link dùng thử (deploy):**
 
-> Dán link public để team khác mở thử ngay. Cách deploy nhanh bằng Cloudflare Tunnel xem README. Nếu deploy Vercel/Streamlit Cloud thì dán link đó.
->
-> URL: 
+Đang cập nhật — nhóm chưa có UI/link demo.
 
 ## A2. Tool agent có
 
-> Liệt kê các tool agent đang dùng (gồm tool mới nhóm tự thêm). Mỗi tool 1 dòng: tên + làm được gì.
-
 | Tên tool | Làm được gì | Tool mới nhóm thêm? |
 |---|---|---|
-| clarify | hỏi lại người dùng khi thiếu thông tin | không |
-|  |  |  |
-|  |  |  |
+| `clarify` | Hỏi lại người dùng khi yêu cầu thiếu thông tin | Không |
+| `timeline` | Lấy các bài đăng gần đây của một tài khoản | Không |
+| `social_search` | Tìm bài đăng trên mạng xã hội theo từ khóa | Không |
+| `lookup` | Tìm thông tin chung hoặc tin tức trên web | Không |
+| `fetch` | Đọc nội dung từ một URL | Không |
+| `format` | Định dạng các kết quả đã thu thập thành digest | Không |
+| `send` | Gửi nội dung tới Telegram sau khi người dùng xác nhận | Không |
+| `policy` | Tìm thông tin trong tài liệu chính sách nội bộ | Không |
+| `papers` | Tìm bài nghiên cứu trên arXiv | Không |
+| `paper_text` | Trích xuất nội dung văn bản từ bài nghiên cứu arXiv | Không |
+| `hn_top` | Lấy bài top, mới hoặc nổi bật trên Hacker News; có thể lọc theo từ khóa | Có |
 
 ## A3. Câu hỏi mẫu để thử
 
-> 3–5 câu hỏi/yêu cầu mẫu để team khác tự thử agent ngay.
-
-1.
-2.
-3.
+1. Tìm 5 bài đăng mới nhất của Sam Altman.
+2. Tìm tin tức mới trong tuần này về AI agent.
+3. Đọc URL này và tóm tắt các ý chính: [dán URL].
+4. Tìm các bài nghiên cứu trên arXiv về đánh giá AI agent.
+5. Lấy 5 bài đang hot trên Hacker News có nhắc đến AI.
 
 ---
 

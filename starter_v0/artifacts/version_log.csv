@@ -1,1 +1,2 @@
 version,author,changed_artifact,artifact_version,prompt_hash,tools_hash,reason,hypothesis,metric_before,metric_after,run_file
+v0,Trinh Thanh Tung,baseline,v0+peb1c8179815b+t5b22a2476d41,eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68,5b22a2476d41b989d5dc1e54f24ce7890e781909deb2f7afafb856ab53a6d7c0,"Measure starter performance before making changes","Baseline measurement with the original prompt and tool declarations",N/A,case_accuracy=0.65,runs/v0_B_base_openrouter_20261110T101539561048.json
