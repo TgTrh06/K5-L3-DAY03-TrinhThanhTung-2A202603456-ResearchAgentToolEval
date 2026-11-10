@@ -1,0 +1,156 @@
+{
+  "transcript_id": "v0_openrouter_20261110T145929723303",
+  "version": "v0",
+  "artifact_version": "v0+peb1c8179815b+t9987796a7bb2",
+  "prompt_hash": "eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68",
+  "tools_hash": "9987796a7bb239766fc73fab2d19126647d3ef06f898038232e1c32b50bbe466",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "D:\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\K5-L3-DAY03-TrinhThanhTung-2A202603456-ResearchAgentToolEval\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T14:59:29",
+  "updated_at": "2026-11-10T14:59:44",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T14:59:29",
+      "user": "tìm tài liệu",
+      "status": "answered",
+      "assistant_text": "Here are some recent resources related to \"tài liệu\":\n\n1. **Cách biến hàng trăm trang tài liệu PDF thành Trợ lý hỏi đáp thông minh**  \n   A guide on using Google NotebookLM to convert lengthy PDF documents into an interactive Q&A assistant and audio podcast in just 30 seconds.  \n   [Read more](https://www.facebook.com/hocvienaimarketing/videos/c%C3%A1ch-bi%E1%BA%BFn-h%C3%A0ng-tr%C4%83m-trang-t%C3%A0i-li%E1%BB%87u-pdf-d%C3%A0i-l%C3%AA-th%C3%AA-th%C3%A0nh-tr%E1%BB%A3-l%C3%BD-h%E1%BB%8Fi-%C4%91%C3%A1p-th%C3%B4ng-min/1433617348878646)\n\n2. **Google Tài liệu - Ứng dụng trên Google Play**  \n   Create, edit, and collaborate on documents from your Android device with Google Docs.  \n   [Download here](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs&hl=vi)\n\n3. **10 Phần mềm Kiểm soát Tài liệu Hàng đầu cho Không gian làm việc**  \n   An overview of top document control software solutions for businesses, including features and benefits.  \n   [Learn more](https://www.larksuite.com/vi_vn/blog/document-control-software)\n\n4. **Quét tài liệu và tạo bản sao - moto g stylus 5G - 2024**  \n   Instructions on how to scan documents using the Moto G Stylus 5G.  \n   [Read the guide](https://help.motorola.com/hc/3518/15/na/vi-vn/CGT1505044013.html)\n\n5. **TRUE IELTS giúp trung tâm quản lý học liệu số hiệu quả**  \n   A post discussing how TRUE IELTS helps organize educational resources effectively.  \n   [View post](https://www.facebook.com/groups/theforumielts/posts/998415309482683)\n\nFeel free to explore these links for more information!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "tài liệu",
+                "topic": "general",
+                "timeframe": "week",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "tài liệu",
+                "topic": "general",
+                "timeframe": "week",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "tài liệu",
+                "topic": "general",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "1.7K views · 10 comments | Cách biến hàng trăm trang tài liệu PDF dài lê thê thành Trợ lý hỏi đáp thông minh và chương trình Audio Podcast 2 người dẫn chỉ trong 30 giây với Google NotebookLM! 📚🎙️\n\nKhông còn cảnh phải đọc từng trang báo cáo, giáo trình hay hợp đồng dày cộp nữa, công cụ miễn phí 100% này của Google sẽ giúp bạn làm chủ mọi tài liệu qua 4 bước:\n\n1️⃣ Bước 1: Truy cập trang chủ Google NotebookLM và bấm nút Create (Tạo sổ tay mới).\n2️⃣ Bước 2: Tải lên tối đa 50 nguồn tài liệu cùng lúc (Hỗ trợ file PDF, Word/Google Docs, Google Slides, file ghi âm MP3, link Website và cả link video YouTube).\n3️⃣ Bước 3: Đặt câu hỏi trực tiếp trong ô Chat — AI sẽ trích xuất câu trả lời chuẩn xác kèm theo số thứ tự trích dẫn [1], [2] dẫn thẳng tới từng đoạn văn gốc (cam kết 0% bịa đặt thông tin!).\n4️⃣ Bước 4: Mở bảng Studio bên góc phải ➔ Bấm nút Generate trong mục Audio Overview để biến toàn bộ tài liệu thành một buổi trò chuyện Podcast 2 người dẫn cực kỳ sinh động, hoặc tạo ngay Đề cương ôn tập (Study Guide), Bản tóm tắt (Briefing Doc) & Dòng thời gian (Timeline)!\n\n👇 Mình đã để sẵn Đường Link Truy Cập + Mẹo Cài Đặt Để Tạo Podcast Tiếng Việt 100% ở dưới phần Bình Luận để bạn thử ngay nhé!\n\nHãy Follow kênh để học thêm nhiều kỹ năng ứng dụng AI mới nhất! 🚀\n\n#NotebookLM #GoogleAI #TomTatTaiLieu #DocSachNhanh #PodcastAI #UngDungAISieuThuc #MeoAI #CongCuAI #NghienCuuAI #KyNangAI | Ứng Dụng AI Siêu Thực",
+                    "url": "https://www.facebook.com/hocvienaimarketing/videos/c%C3%A1ch-bi%E1%BA%BFn-h%C3%A0ng-tr%C4%83m-trang-t%C3%A0i-li%E1%BB%87u-pdf-d%C3%A0i-l%C3%AA-th%C3%AA-th%C3%A0nh-tr%E1%BB%A3-l%C3%BD-h%E1%BB%8Fi-%C4%91%C3%A1p-th%C3%B4ng-min/1433617348878646",
+                    "source": "facebook.com",
+                    "summary": "Cách biến hàng trăm trang tài liệu PDF dài lê thê thành Trợ lý hỏi đáp thông minh và chương trình Audio Podcast 2 người dẫn chỉ trong 30 giây với Google NotebookLM! 📚🎙️ Không còn cảnh phải đọc từng trang báo cáo, giáo trình hay hợp đồng dày cộp nữa, công cụ miễn phí 100% này của Google sẽ giúp bạn làm chủ mọi tài liệu qua 4 bước: 1️⃣ Bước 1: Truy cập trang chủ Google NotebookLM và bấm nút Create (Tạo sổ tay mới). 2️⃣ Bước 2: Tải lên tối đa 50 nguồn tài liệu cùng lúc (Hỗ trợ file PDF, [...] ngay nhé! #ChatGPT #UngDungAISieuThuc #ThietKeAnhAI #QuangCaoSanPham #PromptChatGPT #AIMarketing #MeoAI [...] (Hỗ trợ file PDF, Word/Google Docs, Google Slides, file ghi âm MP3, link Website và cả link video YouTube). 3️⃣ Bước 3: Đặt câu hỏi trực tiếp trong ô Chat — AI sẽ trích xuất câu trả lời chuẩn xác kèm theo số thứ tự trích dẫn ,  dẫn thẳng tới từng đoạn văn gốc (cam kết 0% bịa đặt thông tin!). 4️⃣ Bước 4: Mở bảng Studio bên góc phải ➔ Bấm nút Generate trong mục Audio Overview để biến toàn bộ tài liệu thành một buổi trò chuyện Podcast 2 người dẫn cực kỳ sinh động, hoặc tạo ngay Đề cương ôn tập",
+                    "score": 0.45289886
+                  },
+                  {
+                    "title": "Google Tài liệu - Ứng dụng trên Google Play",
+                    "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs&hl=vi",
+                    "source": "play.google.com",
+                    "summary": "Tạo, chỉnh sửa và cộng tác với những người khác trên tài liệu từ điện thoại hoặc máy tính bảng Android của bạn bằng ứng dụng Google Tài liệu. Với Tài liệu, bạn có thể:  \n  \n- Tạo tài liệu mới hoặc chỉnh sửa tệp hiện có  \n- Chia sẻ tài liệu và cộng tác trên cùng một tài liệu cùng lúc.  \n- Làm việc mọi lúc, mọi nơi - ngay cả khi ngoại tuyến  \n- Thêm và trả lời nhận xét.  \n- Không bao giờ lo mất dữ liệu – mọi thứ được tự động lưu khi bạn nhập.  \n- Nghiên cứu, ngay trong Tài liệu với Khám phá [...] Tạo và chỉnh sửa tài liệu mọi lúc, mọi nơi\n\nLần cập nhật gần đy nhất\n\n5 thg 11, 2026\n\nNăng suất\n\n## An toàn dữ liệu\n\narrow\\_forward\n\nSự an toàn bắt đầu từ việc nắm được cách nhà phát triển thu thập và chia sẻ dữ liệu của bạn. Các biện pháp bảo vệ quyền riêng tư và bảo mật dữ liệu có thể thay đổi tuỳ theo cách sử dụng, khu vực và độ tuổi. Nhà phát triển đã cung cấp thông tin này và có thể sẽ cập nhật theo thời gian.\n\n Hình ảnh của biểu tượng\n\n  Không chia sẻ dữ liệu với bên thứ ba [...] - Mở, chỉnh sửa và lưu tài liệu Word.",
+                    "score": 0.4521428
+                  },
+                  {
+                    "title": "10 Phần mềm Kiểm soát Tài liệu Hàng đầu cho Không gian làm việc",
+                    "url": "https://www.larksuite.com/vi_vn/blog/document-control-software",
+                    "source": "larksuite.com",
+                    "summary": "| Bộ ứng dụng nội dung OpenText​ | Quản trị tài liệu cấp Doanh nghiệp​ | Quản lý vòng đời nội dung nâng cao; tích hợp; thực thi chính sách​ | ❌ Không​ | ✅ Vâng​ |\n| DocuPhase​ | Quy trình làm việc và phê duyệt tài liệu tự động​ | OCR; tự động hóa biểu mẫu; định tuyến dựa trên quy tắc​ | ❌ Không​ | ❌ Không​ |\n| Văn hóa an toàn​ | Tài liệu xây dựng và an toàn​ | Biểu mẫu kiểm tra; phiên bản tập tin; dấu vết kiểm toán; truy cập di động​ | ✅ Vâng​ | ✅ Vâng​ | [...] Bắt đầu chọn và kiểm soát quy trình làm việc của tài liệu\n\nBắt đầu\n\n## Phần mềm kiểm soát tài liệu là gì?\n\n## Các tính năng chính cần tìm trong phần mềm kiểm soát tài liệu\n\nĐơn giản hóa quy trình tuân thủ trên toàn bộ nhóm của bạn\n\nThử ngay\n\n## 10 giải pháp kiểm soát tài liệu hàng đầu cho các nhóm và Enterprise\n\n### 1. Lark: Không gian làm việc tất cả trong một để kiểm soát và cộng tác tài liệu [...] ### 3. DocuWare: Quản lý tài liệu trên nền tảng đám mây an toàn cho các nhóm đang phát triển\n\nDocuWare for flexible document control system\n\n### 4. Dropbox Kinh doanh: Quản lý tài liệu an toàn, hợp tác cho các nhóm hiện đại\n\nDropbox Business for secure, collaborative document management\n\n### 5. Zoho WorkDrive: Cộng tác tài liệu theo nhóm với các tính năng kiểm soát\n\nZoho WorkDrive for team-based document collaboration\n\n### 6. OpenText Content Suite: Quản lý thông tin và hồ sơ cấp Doanh nghiệp",
+                    "score": 0.41596606
+                  },
+                  {
+                    "title": "Quét tài liệu và tạo bản sao - moto g stylus 5G - 2024",
+                    "url": "https://help.motorola.com/hc/3518/15/na/vi-vn/CGT1505044013.html",
+                    "source": "help.motorola.com",
+                    "summary": "Định vị tài liệu trong khung máy ảnh và giữ yên điện thoại đến khi quét xong. Nếu muốn, hãy sử dụng các công cụ ở dưới cùng màn hình để cắt, xoay, bộ lọc, hoặc",
+                    "score": 0.34753713
+                  },
+                  {
+                    "title": "TRUE IELTS giúp trung tâm quản lý học liệu số hiệu quả",
+                    "url": "https://www.facebook.com/groups/theforumielts/posts/998415309482683",
+                    "source": "facebook.com",
+                    "summary": ": • Hệ thống hóa kho học liệu, Tập trung tài nguyên giảng dạy trên một nền tảng thống nhất. • Hỗ trợ giáo viên tiếp cận và khai thác tài liệu thuận tiện hơn.",
+                    "score": 0.31362996
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some recent resources related to \"tài liệu\":\n\n1. **Cách biến hàng trăm trang tài liệu PDF thành Trợ lý hỏi đáp thông minh**  \n   A guide on using Google NotebookLM to convert lengthy PDF documents into an interactive Q&A assistant and audio podcast in just 30 seconds.  \n   [Read more](https://www.facebook.com/hocvienaimarketing/videos/c%C3%A1ch-bi%E1%BA%BFn-h%C3%A0ng-tr%C4%83m-trang-t%C3%A0i-li%E1%BB%87u-pdf-d%C3%A0i-l%C3%AA-th%C3%AA-th%C3%A0nh-tr%E1%BB%A3-l%C3%BD-h%E1%BB%8Fi-%C4%91%C3%A1p-th%C3%B4ng-min/1433617348878646)\n\n2. **Google Tài liệu - Ứng dụng trên Google Play**  \n   Create, edit, and collaborate on documents from your Android device with Google Docs.  \n   [Download here](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs&hl=vi)\n\n3. **10 Phần mềm Kiểm soát Tài liệu Hàng đầu cho Không gian làm việc**  \n   An overview of top document control software solutions for businesses, including features and benefits.  \n   [Learn more](https://www.larksuite.com/vi_vn/blog/document-control-software)\n\n4. **Quét tài liệu và tạo bản sao - moto g stylus 5G - 2024**  \n   Instructions on how to scan documents using the Moto G Stylus 5G.  \n   [Read the guide](https://help.motorola.com/hc/3518/15/na/vi-vn/CGT1505044013.html)\n\n5. **TRUE IELTS giúp trung tâm quản lý học liệu số hiệu quả**  \n   A post discussing how TRUE IELTS helps organize educational resources effectively.  \n   [View post](https://www.facebook.com/groups/theforumielts/posts/998415309482683)\n\nFeel free to explore these links for more information!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "tài liệu",
+            "topic": "general",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "tài liệu",
+            "topic": "general",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "1.7K views · 10 comments | Cách biến hàng trăm trang tài liệu PDF dài lê thê thành Trợ lý hỏi đáp thông minh và chương trình Audio Podcast 2 người dẫn chỉ trong 30 giây với Google NotebookLM! 📚🎙️\n\nKhông còn cảnh phải đọc từng trang báo cáo, giáo trình hay hợp đồng dày cộp nữa, công cụ miễn phí 100% này của Google sẽ giúp bạn làm chủ mọi tài liệu qua 4 bước:\n\n1️⃣ Bước 1: Truy cập trang chủ Google NotebookLM và bấm nút Create (Tạo sổ tay mới).\n2️⃣ Bước 2: Tải lên tối đa 50 nguồn tài liệu cùng lúc (Hỗ trợ file PDF, Word/Google Docs, Google Slides, file ghi âm MP3, link Website và cả link video YouTube).\n3️⃣ Bước 3: Đặt câu hỏi trực tiếp trong ô Chat — AI sẽ trích xuất câu trả lời chuẩn xác kèm theo số thứ tự trích dẫn [1], [2] dẫn thẳng tới từng đoạn văn gốc (cam kết 0% bịa đặt thông tin!).\n4️⃣ Bước 4: Mở bảng Studio bên góc phải ➔ Bấm nút Generate trong mục Audio Overview để biến toàn bộ tài liệu thành một buổi trò chuyện Podcast 2 người dẫn cực kỳ sinh động, hoặc tạo ngay Đề cương ôn tập (Study Guide), Bản tóm tắt (Briefing Doc) & Dòng thời gian (Timeline)!\n\n👇 Mình đã để sẵn Đường Link Truy Cập + Mẹo Cài Đặt Để Tạo Podcast Tiếng Việt 100% ở dưới phần Bình Luận để bạn thử ngay nhé!\n\nHãy Follow kênh để học thêm nhiều kỹ năng ứng dụng AI mới nhất! 🚀\n\n#NotebookLM #GoogleAI #TomTatTaiLieu #DocSachNhanh #PodcastAI #UngDungAISieuThuc #MeoAI #CongCuAI #NghienCuuAI #KyNangAI | Ứng Dụng AI Siêu Thực",
+                "url": "https://www.facebook.com/hocvienaimarketing/videos/c%C3%A1ch-bi%E1%BA%BFn-h%C3%A0ng-tr%C4%83m-trang-t%C3%A0i-li%E1%BB%87u-pdf-d%C3%A0i-l%C3%AA-th%C3%AA-th%C3%A0nh-tr%E1%BB%A3-l%C3%BD-h%E1%BB%8Fi-%C4%91%C3%A1p-th%C3%B4ng-min/1433617348878646",
+                "source": "facebook.com",
+                "summary": "Cách biến hàng trăm trang tài liệu PDF dài lê thê thành Trợ lý hỏi đáp thông minh và chương trình Audio Podcast 2 người dẫn chỉ trong 30 giây với Google NotebookLM! 📚🎙️ Không còn cảnh phải đọc từng trang báo cáo, giáo trình hay hợp đồng dày cộp nữa, công cụ miễn phí 100% này của Google sẽ giúp bạn làm chủ mọi tài liệu qua 4 bước: 1️⃣ Bước 1: Truy cập trang chủ Google NotebookLM và bấm nút Create (Tạo sổ tay mới). 2️⃣ Bước 2: Tải lên tối đa 50 nguồn tài liệu cùng lúc (Hỗ trợ file PDF, [...] ngay nhé! #ChatGPT #UngDungAISieuThuc #ThietKeAnhAI #QuangCaoSanPham #PromptChatGPT #AIMarketing #MeoAI [...] (Hỗ trợ file PDF, Word/Google Docs, Google Slides, file ghi âm MP3, link Website và cả link video YouTube). 3️⃣ Bước 3: Đặt câu hỏi trực tiếp trong ô Chat — AI sẽ trích xuất câu trả lời chuẩn xác kèm theo số thứ tự trích dẫn ,  dẫn thẳng tới từng đoạn văn gốc (cam kết 0% bịa đặt thông tin!). 4️⃣ Bước 4: Mở bảng Studio bên góc phải ➔ Bấm nút Generate trong mục Audio Overview để biến toàn bộ tài liệu thành một buổi trò chuyện Podcast 2 người dẫn cực kỳ sinh động, hoặc tạo ngay Đề cương ôn tập",
+                "score": 0.45289886
+              },
+              {
+                "title": "Google Tài liệu - Ứng dụng trên Google Play",
+                "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs&hl=vi",
+                "source": "play.google.com",
+                "summary": "Tạo, chỉnh sửa và cộng tác với những người khác trên tài liệu từ điện thoại hoặc máy tính bảng Android của bạn bằng ứng dụng Google Tài liệu. Với Tài liệu, bạn có thể:  \n  \n- Tạo tài liệu mới hoặc chỉnh sửa tệp hiện có  \n- Chia sẻ tài liệu và cộng tác trên cùng một tài liệu cùng lúc.  \n- Làm việc mọi lúc, mọi nơi - ngay cả khi ngoại tuyến  \n- Thêm và trả lời nhận xét.  \n- Không bao giờ lo mất dữ liệu – mọi thứ được tự động lưu khi bạn nhập.  \n- Nghiên cứu, ngay trong Tài liệu với Khám phá [...] Tạo và chỉnh sửa tài liệu mọi lúc, mọi nơi\n\nLần cập nhật gần đy nhất\n\n5 thg 11, 2026\n\nNăng suất\n\n## An toàn dữ liệu\n\narrow\\_forward\n\nSự an toàn bắt đầu từ việc nắm được cách nhà phát triển thu thập và chia sẻ dữ liệu của bạn. Các biện pháp bảo vệ quyền riêng tư và bảo mật dữ liệu có thể thay đổi tuỳ theo cách sử dụng, khu vực và độ tuổi. Nhà phát triển đã cung cấp thông tin này và có thể sẽ cập nhật theo thời gian.\n\n Hình ảnh của biểu tượng\n\n  Không chia sẻ dữ liệu với bên thứ ba [...] - Mở, chỉnh sửa và lưu tài liệu Word.",
+                "score": 0.4521428
+              },
+              {
+                "title": "10 Phần mềm Kiểm soát Tài liệu Hàng đầu cho Không gian làm việc",
+                "url": "https://www.larksuite.com/vi_vn/blog/document-control-software",
+                "source": "larksuite.com",
+                "summary": "| Bộ ứng dụng nội dung OpenText​ | Quản trị tài liệu cấp Doanh nghiệp​ | Quản lý vòng đời nội dung nâng cao; tích hợp; thực thi chính sách​ | ❌ Không​ | ✅ Vâng​ |\n| DocuPhase​ | Quy trình làm việc và phê duyệt tài liệu tự động​ | OCR; tự động hóa biểu mẫu; định tuyến dựa trên quy tắc​ | ❌ Không​ | ❌ Không​ |\n| Văn hóa an toàn​ | Tài liệu xây dựng và an toàn​ | Biểu mẫu kiểm tra; phiên bản tập tin; dấu vết kiểm toán; truy cập di động​ | ✅ Vâng​ | ✅ Vâng​ | [...] Bắt đầu chọn và kiểm soát quy trình làm việc của tài liệu\n\nBắt đầu\n\n## Phần mềm kiểm soát tài liệu là gì?\n\n## Các tính năng chính cần tìm trong phần mềm kiểm soát tài liệu\n\nĐơn giản hóa quy trình tuân thủ trên toàn bộ nhóm của bạn\n\nThử ngay\n\n## 10 giải pháp kiểm soát tài liệu hàng đầu cho các nhóm và Enterprise\n\n### 1. Lark: Không gian làm việc tất cả trong một để kiểm soát và cộng tác tài liệu [...] ### 3. DocuWare: Quản lý tài liệu trên nền tảng đám mây an toàn cho các nhóm đang phát triển\n\nDocuWare for flexible document control system\n\n### 4. Dropbox Kinh doanh: Quản lý tài liệu an toàn, hợp tác cho các nhóm hiện đại\n\nDropbox Business for secure, collaborative document management\n\n### 5. Zoho WorkDrive: Cộng tác tài liệu theo nhóm với các tính năng kiểm soát\n\nZoho WorkDrive for team-based document collaboration\n\n### 6. OpenText Content Suite: Quản lý thông tin và hồ sơ cấp Doanh nghiệp",
+                "score": 0.41596606
+              },
+              {
+                "title": "Quét tài liệu và tạo bản sao - moto g stylus 5G - 2024",
+                "url": "https://help.motorola.com/hc/3518/15/na/vi-vn/CGT1505044013.html",
+                "source": "help.motorola.com",
+                "summary": "Định vị tài liệu trong khung máy ảnh và giữ yên điện thoại đến khi quét xong. Nếu muốn, hãy sử dụng các công cụ ở dưới cùng màn hình để cắt, xoay, bộ lọc, hoặc",
+                "score": 0.34753713
+              },
+              {
+                "title": "TRUE IELTS giúp trung tâm quản lý học liệu số hiệu quả",
+                "url": "https://www.facebook.com/groups/theforumielts/posts/998415309482683",
+                "source": "facebook.com",
+                "summary": ": • Hệ thống hóa kho học liệu, Tập trung tài nguyên giảng dạy trên một nền tảng thống nhất. • Hỗ trợ giáo viên tiếp cận và khai thác tài liệu thuận tiện hơn.",
+                "score": 0.31362996
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T14:59:44"
+    }
+  ]
+}

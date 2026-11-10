@@ -1,0 +1,12 @@
+{
+  "version": "v0",
+  "author": "",
+  "reason": "Baseline tự động từ artifacts hiện tại",
+  "hypothesis": "",
+  "created_at": "2026-11-10T14:53:03",
+  "parent": null,
+  "changed_artifact": "initial",
+  "artifact_version": "v0+peb1c8179815b+t9987796a7bb2",
+  "prompt_hash": "eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68",
+  "tools_hash": "9987796a7bb239766fc73fab2d19126647d3ef06f898038232e1c32b50bbe466"
+}

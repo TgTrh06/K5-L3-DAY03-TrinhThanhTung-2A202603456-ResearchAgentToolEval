@@ -1,0 +1,12 @@
+{
+  "version": "v1",
+  "author": "hai",
+  "reason": "update system promt",
+  "hypothesis": "v",
+  "created_at": "2026-11-10T15:01:07",
+  "parent": "v0",
+  "changed_artifact": "system_prompt",
+  "artifact_version": "v1+p1f25e76bfc26+t9987796a7bb2",
+  "prompt_hash": "1f25e76bfc2688b0e5a41d5c77b0d33856068683ef8074bfc4e9d92af81bcee9",
+  "tools_hash": "9987796a7bb239766fc73fab2d19126647d3ef06f898038232e1c32b50bbe466"
+}

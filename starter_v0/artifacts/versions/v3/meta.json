@@ -1,0 +1,12 @@
+{
+  "version": "v3",
+  "author": "",
+  "reason": "",
+  "hypothesis": "",
+  "created_at": "2026-11-10T15:17:18",
+  "parent": "v2",
+  "changed_artifact": "system_prompt",
+  "artifact_version": "v3+p867ecbbb4f8a+t9987796a7bb2",
+  "prompt_hash": "867ecbbb4f8a423dc84460f4f45adcec1e0f388cc21401195cb5be17bac6c95d",
+  "tools_hash": "9987796a7bb239766fc73fab2d19126647d3ef06f898038232e1c32b50bbe466"
+}

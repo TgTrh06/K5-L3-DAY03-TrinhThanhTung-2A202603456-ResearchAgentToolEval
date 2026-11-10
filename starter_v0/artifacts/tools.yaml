@@ -123,3 +123,16 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang"}
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
+
+  - name: hn_top
+    description: >-
+      Lấy các bài đang hot trên Hacker News (cộng đồng lập trình viên/tech).
+      CHỈ DÙNG khi người dùng nhắc "Hacker News" hoặc "HN".
+      KHÔNG dùng cho tin báo chí chung (dùng lookup) hay Twitter (dùng social_search/timeline).
+    parameters:
+      type: object
+      properties:
+        story_type: {type: string, enum: [top, new, best], default: "top", description: "'top' = đang hot (mặc định), 'new' = mới nhất, 'best' = vote cao nhất."}
+        query: {type: string, default: "", description: "Từ khóa lọc tiêu đề, VD 'AI'. Để trống nếu không lọc."}
+        limit: {type: integer, default: 5, description: "Số bài trả về, VD '10 bài' -> 10."}
+      required: [query]
