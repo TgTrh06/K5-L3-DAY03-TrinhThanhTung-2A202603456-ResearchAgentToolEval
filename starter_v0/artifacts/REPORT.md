@@ -83,20 +83,22 @@ Diễn biến: v0 có 5 case FAIL, v1 có 2, v2 có 1 và v3 có 0 trên bộ ba
 
 ## B3. Team Eval Cases
 
-`data/eval_group.json` có 10 case (5 single-turn, 5 multi-turn). Trong `runs/` hiện chỉ có các run suite `base`; chưa có run suite `group`. Do đó cột kết quả ghi rõ chưa có bằng chứng chạy, không suy ra kết quả từ base run.
+`data/eval_group.json` có 10 case (5 single-turn, 5 multi-turn). Run suite `group` đã được thực hiện trên v3 với kết quả **9/10 PASS (case_accuracy = 0.90)**. Run file: `runs/v3_B_group_openrouter_20261110T170854515156.json`.
 
-| Case ID | Nội dung kiểm tra | Kỳ vọng | Kết quả hiện có |
+| Case ID | Nội dung kiểm tra | Kỳ vọng | Kết quả |
 |---|---|---|---|
-| `G01_hn_routing` | Nhắc Hacker News thì route đúng tool mới | `hn_top` | Chưa có group run |
-| `G02_hn_args_best_limit_query` | Chọn best, limit 10 và query AI từ yêu cầu | `hn_top(story_type=best, limit=10, query=AI)` | Chưa có group run |
-| `G03_lookup_not_hn` | Tin AI trên web không bị tool HN chiếm | `lookup(query=AI, topic=news, timeframe=week)` | Chưa có group run |
-| `G04_confirm_before_send_slack` | Yêu cầu đăng chưa đủ xác nhận thì hỏi lại | `clarify(response_type=yes_no)`; không gọi `send` | Chưa có group run |
-| `G05_missing_handle_pronoun` | Đại từ không xác định được tài khoản thì hỏi lại | `clarify(response_type=text)` | Chưa có group run |
-| `M_G06_switch_hn_to_twitter` | Đổi từ HN sang Twitter và giữ chủ đề AI | `social_search(query=AI, search_type=Top)` | Chưa có group run |
-| `M_G07_hn_correction_limit` | Giữ story type `new`, cập nhật limit thành 3 | `hn_top(story_type=new, limit=3)` | Chưa có group run |
-| `M_G08_clarify_then_hn` | Sau khi làm rõ nguồn và bổ sung query/limit, gọi tool HN | `hn_top(query=LLM, limit=3)` | Chưa có group run |
-| `M_G09_confirm_then_send` | Sau xác nhận tường minh mới gửi | `send(confirmed=true)` | Chưa có group run |
-| `M_G10_out_of_scope_midway` | Yêu cầu cuối là viết code ngoài phạm vi research | Không gọi tool; từ chối | Chưa có group run |
+| `G01_hn_routing` | Nhắc Hacker News thì route đúng tool mới | `hn_top` | ✅ PASS |
+| `G02_hn_args_best_limit_query` | Chọn best, limit 10 và query AI từ yêu cầu | `hn_top(story_type=best, limit=10, query=AI)` | ✅ PASS |
+| `G03_lookup_not_hn` | Tin AI trên web không bị tool HN chiếm | `lookup(query=AI, topic=news, timeframe=week)` | ✅ PASS |
+| `G04_confirm_before_send_slack` | Yêu cầu đăng chưa đủ xác nhận thì hỏi lại | `clarify(response_type=yes_no)`; không gọi `send` | ✅ PASS |
+| `G05_missing_handle_pronoun` | Đại từ không xác định được tài khoản thì hỏi lại | `clarify(response_type=text)` | ✅ PASS |
+| `M_G06_switch_hn_to_twitter` | Đổi từ HN sang Twitter và giữ chủ đề AI | `social_search(query=AI, search_type=Top)` | ✅ PASS |
+| `M_G07_hn_correction_limit` | Giữ story type `new`, cập nhật limit thành 3 | `hn_top(story_type=new, limit=3)` | ✅ PASS |
+| `M_G08_clarify_then_hn` | Sau khi làm rõ nguồn và bổ sung query/limit, gọi tool HN | `hn_top(query=LLM, limit=3)` | ❌ FAIL — `extra_tool_call` (gọi thêm tool thừa sau khi đã đúng) |
+| `M_G09_confirm_then_send` | Sau xác nhận tường minh mới gửi | `send(confirmed=true)` | ✅ PASS |
+| `M_G10_out_of_scope_midway` | Yêu cầu cuối là viết code ngoài phạm vi research | Không gọi tool; từ chối | ✅ PASS |
+
+**Tóm tắt group run:** case_accuracy=0.90 · tool_routing_accuracy=0.90 · argument_accuracy=0.90 · multiturn_accuracy=0.80 · failure: `missing_info` × 1 (extra_tool_call tại M_G08).
 
 ## B4. Live Chat Evidence
 
@@ -115,15 +117,16 @@ Các ví dụ lấy từ transcript thật. Transcript v3 cuối cùng có lư�
 | Telegram `send` | `transcripts/v3_openrouter_20261110T161134558821.transcript.json`, lượt 3–4 | Agent hỏi xác nhận rồi gửi; tool result ghi `status=sent` | Không gửi trước khi user xác nhận; UI cũng yêu cầu checkbox xác nhận |
 | arXiv / company policy | `tools/papers/TOOL.md`, `tools/paper_text/TOOL.md`, `tools/policy/TOOL.md` | Có tool declaration và hướng dẫn dùng | Không tìm thấy live transcript/run chứng minh các tool này đã chạy end-to-end; không khẳng định đã kiểm thử live |
 | UI | `app.py` | Có các trang Chat, so sánh version, so sánh câu trả lời và Telegram; chạy bằng Streamlit local | Dùng localhost, không có link demo công khai trong báo cáo |
-| Tool mới `hn_top` | `tools/hacker_news/TOOL.md`, `tests/test_hn_top.py`, `data/eval_group.json` | Có implementation, đăng ký tool, test cho routing registry, args, lọc, fallback URL và lỗi HTTP; eval group có case routing/args | Group eval chưa có run JSON; test của tool không thay thế kết quả routing từ model |
-| Unit tests | `tests/test_hn_top.py`, `tests/test_tool_contract.py`, `tests/test_tools_examples.py` | `test_hn_top.py` có 17 hàm test (25 case sau khi mở rộng `parametrize`); đã có ghi nhận 92 tests passed ở các suite HN, contract và examples | Không bao gồm `tests/test_tools_todo.py`; chưa có tổng số bug legacy được ghi lại. Ví dụ test bao phủ HN item thiếu URL phải fallback sang link item HN, điều mà eval routing/args không chấm |
+| Tool mới `hn_top` | `tools/hacker_news/TOOL.md`, `tests/test_tools_todo.py`, `data/eval_group.json`, `runs/v3_B_group_openrouter_20261110T170854515156.json` | Có implementation, đăng ký tool; unit test cho hn_top nằm trong `test_tools_todo.py` (12 hàm test, bao gồm happy path, bad input, error branches); group eval 9/10 PASS (G01, G02 routing/args đều đúng) | M_G08 còn extra_tool_call; test unit không thay thế kết quả routing từ model |
+| Unit tests | `tests/test_tools_todo.py`, `tests/test_tool_contract.py`, `tests/test_tools_examples.py` | `test_tools_todo.py` bao gồm test cho tất cả tool (clarify, format, send, lookup, fetch, timeline, social_search, policy, hn_top); tổng **101 passed, 0 failed, 0 skipped** | Test hn_top nằm trong todo thay vì file riêng; test unit không thay thế kết quả routing từ model |
 
 ## B6. Reflection
 
-- **Sửa trong `system_prompt.md`:** cách xử lý yêu cầu ngoài phạm vi, hỏi lại khi thiếu thông tin và thay nguồn khi user đổi hướng giữa các lượt.
+- **Sửa trong `system_prompt.md`:** cách xử lý yêu cầu ngoài phạm vi, hỏi lại khi thiếu thông tin và thay nguồn khi user đổi hướng giữa các lượt. Ba vòng tối ưu (v1→v3) đưa base eval từ 0.75 lên 1.00.
 - **Sửa trong `tools.yaml`:** ranh giới dùng từng tool, convention args và điều kiện `confirmed=true` cho `send`.
-- **Cần người dùng duyệt:** trước hành động gửi nội dung ra Telegram. Eval có thể kiểm tra tool/args, nhưng không thay thế xác nhận hành động ngoài hệ thống.
-- **Cải thiện tiếp:** chạy `eval_group.json` trên v3 để có kết quả cho 10 case nhóm; giữ snapshot/hash khớp run cho mọi version; bổ sung đánh giá chất lượng nội dung và tính phù hợp của nguồn, không chỉ routing/arguments.
+- **Group eval (v3):** 9/10 PASS (0.90). Case duy nhất còn lỗi là `M_G08` — model gọi thêm tool thừa sau khi đã routing đúng. Nguyên nhân: multi-turn 3 lượt với context dài làm model tiếp tục gọi thêm. Hướng sửa tiếp: thêm rule "sau khi đã gọi tool theo thông tin mới được bổ sung, không gọi lại tool cũ".
+- **Cần người dùng duyệt:** trước hành động gửi nội dung ra Telegram. Eval kiểm tra tool/args nhưng không thay thế xác nhận hành động ngoài hệ thống.
+- **Cải thiện tiếp:** giữ snapshot/hash khớp run cho mọi version; bổ sung đánh giá chất lượng nội dung và tính phù hợp của nguồn, không chỉ routing/arguments.
 
 ## B7. Small Local Model Challenge (bonus)
 
