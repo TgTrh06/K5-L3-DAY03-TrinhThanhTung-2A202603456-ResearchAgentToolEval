@@ -1,0 +1,28 @@
+{
+  "transcript_id": "v0_openai_20261110T110651582518",
+  "version": "v0",
+  "artifact_version": "v0+p2120ec17a398+t5b22a2476d41",
+  "prompt_hash": "2120ec17a398f1f0ef45087c321ec13706b01b33b6ab96b33c325cc7fc19c9bd",
+  "tools_hash": "5b22a2476d41b989d5dc1e54f24ce7890e781909deb2f7afafb856ab53a6d7c0",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "D:\\Thuchanh\\VinAI\\Day3_Cleanup\\repo-cleanup\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\Thuchanh\\VinAI\\Day3_Cleanup\\repo-cleanup\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:06:51",
+  "updated_at": "2026-11-10T11:06:52",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:06:51",
+      "user": "hello",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "RuntimeError: Missing API key env var: OPENAI_API_KEY",
+      "ended_at": "2026-11-10T11:06:52"
+    }
+  ]
+}
