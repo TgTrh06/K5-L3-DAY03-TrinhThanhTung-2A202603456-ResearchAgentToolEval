@@ -1,0 +1,14 @@
+{
+  "version": "v2",
+  "author": "team",
+  "reason": "v1 còn FAIL R12 (gọi send không xác nhận) và M06",
+  "hypothesis": "Tool description sơ sài nên model không biết ranh giới send/args; viết lại description (khi nào dùng/không dùng, quy ước args, send cần confirmed) sẽ sửa R12 M06",
+  "artifact_version": "v3+pb92fad19f510+t706688b6b063",
+  "prompt_hash": "3546bb187a0af8ef46ac1a55e14eb0bb43310865441a22ecd5cd678b4542396f",
+  "tools_hash": "706688b6b063662229c2106d244b638d02d3b4bcc2867f600bce44378050441d",
+  "run_prompt_hash": "b92fad19f510e96cf43344cd844e969e2f0cc83b061720d3cd3fa71c72156053",
+  "run_tools_hash": "706688b6b063662229c2106d244b638d02d3b4bcc2867f600bce44378050441d",
+  "run_file": "runs/v2_B_base_openrouter_20261110T124529283747.json",
+  "snapshot_matches_run": false,
+  "snapshot_note": "Merge conflict markers resolved; historical run hash is retained separately and this snapshot is not an exact copy of the run input."
+}

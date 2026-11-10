@@ -1,0 +1,16 @@
+{
+  "version": "v0",
+  "author": "team",
+  "reason": "Baseline starter (prompt cố ý xấu, tool description sơ sài)",
+  "hypothesis": "Đo baseline",
+  "created_at": "2026-11-10T14:11:13",
+  "parent": null,
+  "changed_artifact": "initial",
+  "artifact_version": "v0+peb1c8179815b+t5b22a2476d41",
+  "prompt_hash": "eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68",
+  "tools_hash": "5b22a2476d41b989d5dc1e54f24ce7890e781909deb2f7afafb856ab53a6d7c0",
+  "run_prompt_hash": "eb1c8179815bd79d34de7d326420bb99b3072e6e8ae96464c02d4411f905fc68",
+  "run_tools_hash": "5b22a2476d41b989d5dc1e54f24ce7890e781909deb2f7afafb856ab53a6d7c0",
+  "run_file": "runs/v0_B_base_openrouter_20261110T100823016050.json",
+  "snapshot_matches_run": true
+}
